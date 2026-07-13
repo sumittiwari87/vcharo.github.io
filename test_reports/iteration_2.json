@@ -1,0 +1,43 @@
+{
+  "summary": "Frontend-only testing of new MentorProfile page (/mentors/:id) and Featured Mentors linkage. All 17 requested test cases pass end-to-end on the public REACT_APP_BACKEND_URL preview.",
+  "tested_scope": ["frontend", "integration (waitlist POST reused for booking)"],
+  "passed": [
+    "/mentors/m1 renders (data-testid='mentor-profile-page'); mentor-name text = 'Aarav Menon'",
+    "/mentors/m2 renders 'Nandini Rao', /m3 'Vikram Shah', /m4 'Priya Iyer'",
+    "/mentors/nonexistent renders data-testid='mentor-profile-notfound' + working mentor-notfound-home-link",
+    "mentor-verified-badge, mentor-rating, mentor-response-time, mentor-bio all visible on m1",
+    "mentor-expertise-list has 5 items (mentor-expertise-0..4 all present & visible)",
+    "mentor-experience-* returns 3 experience entries, mentor-education-* returns 1 entry for m1",
+    "4 mentor-session-type-* buttons render. Initial selection = index 1 (₹1,499). Click index 2 -> booking-total updates to ₹2,499. Click index 0 -> ₹Free. Selected style (bg-navy/text-paper) applies.",
+    "Availability rows visible for mon/wed/sat on m1",
+    "Slot testid format works: slot-mon-8:30PM click updates booking-selected-slot to 'Mon · 8:30 PM IST'",
+    "booking-confirm-btn with no slot -> error toast 'Pick a day and a slot to continue.'",
+    "booking-confirm-btn with slot picked -> POST /api/waitlist returned 200 and success toast 'Booking request sent for Aarav Menon on Mon at 8:30 PM. We'll email you a Google Meet link.'",
+    "mentor-hero-book-btn scrolls to #booking (scrollY 1641 from 0)",
+    "mentor-hero-discovery-btn scrolls to booking AND selects Discovery session (booking-total becomes 'Free')",
+    "mentor-back-btn present and clickable",
+    "Related section shows mentor-related-m2, m3, m4 on m1; clicking mentor-related-m2 navigates to /mentors/m2 and hero name = 'Nandini Rao'",
+    "Landing page: mentor-card-m1..m4 all render as <Link>. mentor-view-m* badge visible inside cards. Clicking mentor-card-m3 navigates to /mentors/m3.",
+    "3 review cards render (mentor-review-0..2) with quote + name/city/date",
+    "Devanagari script renders in Navbar (विचार) and Footer while on profile page",
+    "No horizontal overflow at 1440x900 nor at 390x844. Booking widget/confirm btn visible on mobile viewport."
+  ],
+  "failed": [],
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "critical_code_review_comments": [
+    "MentorProfile.jsx is ~505 lines and mixes hero/expertise/booking/reviews/related in one file. Consider splitting into sub-components (BookingWidget, ExperienceTimeline, ReviewsGrid) if it grows further — currently acceptable.",
+    "Booking success toast hardcodes 'We'll email you a Google Meet link.' but no actual booking/Meet integration exists yet — copy is misleading to end users. Consider softening to 'We'll confirm your slot by email' until real booking API is built.",
+    "getMentorById returns undefined for bad IDs which is handled well, but consider a 404 HTTP-style semantic (helmet noindex meta) later for SEO.",
+    "The whole booking submit reuses /api/waitlist — acknowledged as MOCKED per request. When the real booking API is built, replace the axios.post URL and payload shape."
+  ],
+  "test_report_links": [],
+  "action_items": [],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a (frontend-only run)", "frontend": "100%"},
+  "seed_data_creation": "None. Test triggered one real POST /api/waitlist with email 'booking-request+m1@vicharo.in' role 'mentee' source 'mentor-m1-Mon-8:30 PM' — backend accepted (200).",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Booking submit is intentionally MOCKED — reuses /api/waitlist. Slot testid format is `slot-{day.toLowerCase()}-{slot.replace(/\\s+/g,'')}` e.g. slot-mon-8:30PM. When real booking API lands, retest the requestBooking flow against the new endpoint and update the success-toast copy expectation.",
+  "mocked_apis_verified": ["POST /api/waitlist repurposed as booking submission — 200 OK verified"]
+}

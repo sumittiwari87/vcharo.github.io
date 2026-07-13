@@ -119,6 +119,8 @@ Base URL (dev): `${REACT_APP_BACKEND_URL}/api`
 - [x] `data-testid` on every interactive element
 - [x] Testing agent iteration 1 — 100% backend & 100% frontend pass
 - [x] Deployed to Emergent production
+- [x] **Individual mentor profile page (`/mentors/:id`)** — hero (photo, verified badge, rating, location, response time, languages), bio, expertise list, career timeline (roles + education), booking widget (session-type picker, availability slots, sticky summary), reviews, related mentors carousel
+- [x] Featured Mentors cards on landing → link to profile page (whole card is clickable, "View profile" CTA)
 
 ---
 
@@ -132,7 +134,7 @@ Base URL (dev): `${REACT_APP_BACKEND_URL}/api`
 
 ### P0 — Core marketplace (next big module)
 - [ ] Mentor discovery / filter page (`/mentors`)
-- [ ] Individual mentor profile page (`/mentors/:id`)
+- [x] Individual mentor profile page (`/mentors/:id`) — ✅ done Dec 13, 2025
 - [ ] Mentee signup + Mentor onboarding auth flows
 - [ ] Mentor application form + admin approval flow
 
@@ -201,6 +203,7 @@ curl -s -X POST "$API/api/waitlist" -H "Content-Type: application/json" \
 | Date       | Change                                                          |
 | ---------- | --------------------------------------------------------------- |
 | 2025-12-13 | v1 landing page live — 13 sections, waitlist API, testing green |
+| 2025-12-13 | Added `/mentors/:id` profile page — hero, bio, expertise, career, booking widget, reviews, related mentors. Landing mentor cards now route to the profile. |
 
 _This README is the live source of truth for scope + status. It will be updated
 after every feature, fix, or scope change._

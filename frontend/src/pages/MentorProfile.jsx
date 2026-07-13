@@ -98,7 +98,7 @@ export default function MentorProfilePage() {
         source: `mentor-${mentor.id}-${selectedDay}-${selectedSlot}`,
       });
       toast.success(
-        `Booking request sent for ${mentor.name} on ${selectedDay} at ${selectedSlot}. We'll email you a Google Meet link.`,
+        `Request received for ${mentor.name} on ${selectedDay} at ${selectedSlot}. We'll confirm your slot by email soon.`,
       );
     } catch (e) {
       toast.error('Could not send booking request. Try again in a moment.');

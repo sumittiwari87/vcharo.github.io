@@ -1,0 +1,93 @@
+{
+  "typography": {
+    "primary_heading": "Playfair Display, serif",
+    "secondary_heading_and_body": "Outfit, sans-serif",
+    "hindi_accent": "Rozha One, serif",
+    "font_imports": "@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Rozha+One&display=swap');",
+    "rules": {
+      "h1": "text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground font-serif leading-none",
+      "h2": "text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground font-serif",
+      "h3": "text-xl md:text-2xl font-medium tracking-tight text-foreground font-sans",
+      "body": "text-base md:text-lg text-foreground/80 font-sans leading-relaxed",
+      "devanagari": "font-['Rozha_One'] text-accent text-opacity-90 inline-block align-baseline"
+    }
+  },
+  "colors": {
+    "background": "#FDFBF7",
+    "foreground": "#0B132B",
+    "primary": "#0B132B",
+    "primary_foreground": "#FDFBF7",
+    "accent_saffron": "#F57A00",
+    "accent_amber": "#FFB238",
+    "muted_sand": "#EAE2D6",
+    "border_subtle": "rgba(11, 19, 43, 0.1)",
+    "rules": {
+      "background_theme": "Light theme is strictly enforced (Soft Off-White/Paper) to foster trust, warmth, and an educational vibe.",
+      "accents": "Use saffron/amber exclusively for CTAs, active states, and small decorative elements (like the Devanagari script).",
+      "gradients": "No generic linear gradients. Use flat colors or subtle radial glows (max 20% opacity) behind hero elements."
+    }
+  },
+  "visual_enhancers": {
+    "texture": "Apply a subtle noise/grain texture over the entire page to give it an 'editorial paper' feel. Implement via a fixed pointer-events-none div with an SVG noise filter at 3% opacity.",
+    "shapes": "Incorporate subtle Indian architectural motifs by using 'rounded-t-full' (arches) on select images or cards instead of standard rectangles.",
+    "borders": "Use 1px solid borders (#0B132B at 10% opacity) for cards and sections to define boundaries sharply, avoiding muddy drop shadows.",
+    "shadows": "Minimal. Use sharp, offset shadows for primary CTAs on hover to create a 'tactile/neo-brutalist' press effect, rather than diffuse soft shadows."
+  },
+  "component_name": [
+    "Hero (Split Screen)",
+    "Trust Strip",
+    "Problem vs Solution",
+    "How It Works (Tabs)",
+    "Featured Categories (Bento Grid)",
+    "Why VICHARO",
+    "Featured Mentors (Carousel/Grid)",
+    "Success Stories",
+    "Pricing",
+    "FAQ (Accordion)",
+    "Newsletter/CTA Band"
+  ],
+  "grids": {
+    "bento_tetris": "Use for 'Featured Categories'. Use grid-cols-1 md:grid-cols-4 lg:grid-cols-12 with wide gaps (gap-6 or gap-8). Mix span sizes (e.g., col-span-4 row-span-2, col-span-8 row-span-1) to create asymmetry and tension.",
+    "standard_dense": "Use for 'Pricing' and 'Why VICHARO'. grid-cols-1 md:grid-cols-3 with gap-8, ensuring equal height cards.",
+    "spacing_scale": "Extremely generous. Use py-24 or py-32 for section vertical padding. Use p-8 or p-12 inside cards to let text breathe."
+  },
+  "layouts": {
+    "hero": "Split-screen layout. Left side: Massive editorial serif typography. Right side: Asymmetrical overlapping image composition featuring mentor and student, grounded by a soft saffron circular background element.",
+    "how_it_works": "Tabbed layout using Shadcn Tabs. 'For Mentees' and 'For Mentors'. Left side text steps with massive numbers, right side changing image/illustration based on active tab.",
+    "general": "Prioritize left-alignment for text blocks. Avoid center-alignment unless it's a short, punchy section title or the final CTA band."
+  },
+  "motion": {
+    "hover_states": "Buttons should have a slight scale transform or sharp shadow offset change. Text colors in navigation should shift to saffron on hover.",
+    "scroll_reveal": "Use staggered fade-in-up animations for grids and lists. Implement smooth scrolling if possible.",
+    "interactive": "Tabs and accordions must have smooth height/content transitions. Use Framer Motion for complex layout shifts if needed."
+  },
+  "accessibility": {
+    "contrast": "Ensure Saffron (#F57A00) against Off-White (#FDFBF7) meets APCA standards; if not, use it primarily for large text or decorative elements, relying on Deep Navy (#0B132B) for critical functional text.",
+    "focus": "All interactive elements must have a highly visible focus ring (ring-2 ring-accent_saffron ring-offset-2 ring-offset-background).",
+    "testing": "All CTAs, inputs, and tab triggers MUST have 'data-testid' attributes (e.g., 'data-testid=\"hero-find-mentor-btn\"')."
+  },
+  "image_urls": {
+    "hero_mentor": {
+      "url": "https://images.pexels.com/photos/5862268/pexels-photo-5862268.jpeg",
+      "description": "Older mentor guiding young mentee, use in hero section, optionally crop into an arch shape."
+    },
+    "hero_student": {
+      "url": "https://images.pexels.com/photos/9159272/pexels-photo-9159272.jpeg",
+      "description": "Young woman on laptop, overlap with the mentor image in the hero section."
+    },
+    "mentor_portrait_1": {
+      "url": "https://images.pexels.com/photos/7580761/pexels-photo-7580761.jpeg",
+      "description": "Confident older male mentor for Featured Mentors section."
+    },
+    "mentor_portrait_2": {
+      "url": "https://images.pexels.com/photos/7580822/pexels-photo-7580822.jpeg",
+      "description": "Confident female mentor for Featured Mentors section."
+    },
+    "student_testimonial": {
+      "url": "https://images.unsplash.com/photo-1605818215588-c8013661b021",
+      "description": "Young professional for Success Stories section."
+    }
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": "- You tend to converge toward generic, 'on distribution' outputs. Avoid the 'AI slop' aesthetic. DO NOT use generic centered layouts, simplistic gradients, and uniform styling.\n- Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.\n- Create depth through layered design elements with z-index hierarchy and overlapping images.\n- NEVER apply universal transitions (e.g., 'transition: all'). Always add transitions for specific properties.\n- DO NOT center align the app container (.App { text-align: center; } is strictly forbidden).\n- NEVER use AI assistant emojis 🤖🧠💭💡🔮🎯 for icons. Use 'lucide-react' for crisp, professional iconography.\n- For toasts, strictly use the 'sonner' library.\n- ALWAYS use the provided image URLs. NEVER use placeholder text or dummy image services.\n- Components: Prioritize using pre-existing components from src/components/ui, but heavily customize their Tailwind classes to match this editorial brand.",
+  "instructions_to_main_agent": "1. Setup fonts in index.css and apply 'font-sans' and 'bg-[#FDFBF7]' to body.\n2. Create the Hero section strictly as a split layout. Use 'Playfair Display' for the English H1 and 'Rozha One' for the Hindi word 'विचार'. Make the H1 massive.\n3. Build the 'How It Works' section using Shadcn Tabs (customized to remove the generic gray background, use transparent backgrounds with sharp borders). \n4. Implement the 'Featured Categories' using a custom CSS Grid (Bento style), NOT Shadcn cards. Use raw divs with sharp 1px borders and hover effects.\n5. Build a functional Newsletter signup form in the Footer/CTA band that mocks an API call and shows a Sonner toast on success.\n6. Add a fixed div with a noise texture SVG overlaid on the entire application with pointer-events-none and low opacity to give the 'paper' feel.\n7. Ensure all buttons have a 'data-testid'."
+}

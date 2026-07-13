@@ -46,6 +46,11 @@ module.exports = {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        saffron: '#F57A00',
+        amber_v: '#FFB238',
+        sand: '#EAE2D6',
+        navy: '#0B132B',
+        paper: '#FDFBF7',
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',
@@ -53,6 +58,11 @@ module.exports = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))'
         }
+      },
+      fontFamily: {
+        serif: ['Playfair Display', 'Georgia', 'serif'],
+        sans: ['Outfit', 'system-ui', 'sans-serif'],
+        devanagari: ['Rozha One', 'serif'],
       },
       keyframes: {
         'accordion-down': {

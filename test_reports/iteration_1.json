@@ -1,0 +1,30 @@
+{
+  "summary": "First-finish smoke test of VICHARO landing page. Backend (7 endpoint variations) and frontend (landing render, hero CTAs, HowItWorks tabs, mentor cards, FAQ, waitlist form submit + duplicate, mobile menu, Devanagari rendering) all passed via REACT_APP_BACKEND_URL public URL.",
+  "tested_scope": ["backend", "frontend", "integration"],
+  "passed": [
+    "GET /api/ -> 200 {'message':'VICHARO API is live'}",
+    "POST /api/waitlist mentee (unique email) -> 200 success:true already_registered:false",
+    "POST /api/waitlist duplicate -> 200 success:true already_registered:true (idempotent)",
+    "POST /api/waitlist mentor -> 200 success",
+    "POST /api/waitlist role='admin' -> 400 'role must be mentee or mentor'",
+    "POST /api/waitlist invalid email -> 422 (Pydantic EmailStr)",
+    "GET /api/waitlist/count -> 200 {count: int}",
+    "Landing page renders with data-testid='landing-page'",
+    "Navbar logo + Get Started button visible",
+    "Hero CTAs (find-mentor, become-mentor) visible; Become-a-mentor scrolls to waitlist form",
+    "HowItWorks tabs switch between mentee/mentor (data-state='active')",
+    "4 mentor cards m1..m4 render; mentors-scroll-next works",
+    "FAQ item-0 clickable",
+    "Waitlist form: role toggles work, submit shows 'Welcome to VICHARO' toast; duplicate shows 'You're already on the VICHARO waitlist' toast (verified in screenshot)",
+    "Devanagari script विचार, आगे, आज renders correctly (verified visually)",
+    "Mobile viewport (390x844): mobile toggle visible and opens menu",
+    "No console/DOM error elements detected"
+  ],
+  "failed": [],
+  "action_items": [
+    "Note: Pydantic EmailStr rejects reserved TLDs like .test/.example — this is expected library behavior, not a bug. Any docs/tests should use real-domain example emails (e.g., @example.com is accepted)."
+  ],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true
+}

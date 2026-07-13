@@ -1,0 +1,53 @@
+{
+  "summary": "Frontend-only smoke of /mentors discovery page (iteration 3). Verified page render, results count, domain/price/language filters, search, sort dropdown, URL sync, empty state, clear all, mobile drawer, mentor card navigation (m5=Rahul Verma, m10=Arjun Bhatt), and no regressions on /mentors/m1. Found & fixed 1 critical testid bug (Data & AI); flagged testability & data-quality concerns.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "MentorDiscovery — Domain filter chip 'Data & AI'",
+        "issue": "Regex `.replace(/\\s+|&/g, '-')` on 'data & ai' produced 'data---ai' (triple dash), so the rendered testid was `filter-domain-data---ai` instead of the expected `filter-domain-data-ai`. This broke test-spec compliance. FIXED by testing agent — regex updated to `/[&\\s]+/g` + dash-collapse cleanup.",
+        "selector": "[data-testid='filter-domain-data-ai']",
+        "priority": "HIGH"
+      },
+      {
+        "component": "MentorDiscovery — FilterPanel duplication",
+        "issue": "The same FilterPanel JSX is rendered twice (desktop sidebar hidden below lg + mobile drawer). While drawer is open on mobile, every filter chip has two DOM nodes with identical `data-testid` (e.g. two `filter-domain-product`, two `filter-lang-English`). Playwright's default selector picks the hidden sidebar copy and throws 'element not visible', making the drawer effectively untestable without .nth() workarounds. Real users are unaffected, but automated tests are brittle.",
+        "selector": "[data-testid='filter-domain-*'] (2 matches when drawer open on mobile)",
+        "priority": "MEDIUM"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "MentorDiscovery — Languages section",
+        "issues": [
+          "mentorLanguages array in /app/frontend/src/data/vicharo.js contains a suspicious/malformed pair — 'മലയാളം' (real Malayalam) and 'മല്യാളം' (likely typo/mixed script). No mentor's languages[] array contains 'മല്യാളം', so that filter chip always returns 0 results.",
+          "Mentor m1 (Aarav Menon) has language 'मल्यालम्' spelled in Devanagari script — this string is not in the mentorLanguages filter list, so users can never filter to m1 by that language. Recommend normalising m1's Malayalam entry to 'മലയാളം' to match the filter list."
+        ]
+      }
+    ]
+  },
+  "test_report_links": ["/app/test_reports/iteration_3.json"],
+  "action_items": [
+    "(Optional cleanup) Consider giving the mobile-drawer FilterPanel a distinct testid namespace (e.g. append `-mobile`) or render only one FilterPanel at a time to remove duplicate testids and make drawer-scope tests reliable.",
+    "Clean up mentorLanguages: remove the malformed 'മല്യാളം' entry and normalise m1's 'मल्यालम्' → 'മലയാളം' so the Malayalam filter chip actually matches a mentor.",
+    "(Nice to have) Price bucket 'lt-1500' currently returns 2 mentors (m1 ₹1,499 + m3 ₹1,299) since ₹1,499 < ₹1,500 — mathematically correct, but the review-spec example only called out Vikram Shah. If the intent was 'well under ₹1,500', tighten the bucket boundary. Otherwise the label 'Under ₹1,500' correctly matches both."
+  ],
+  "critical_code_review_comments": [
+    "MentorDiscovery.jsx line 125: testid regex was fragile — depended on hidden assumption about characters. Now hardened with dash-collapse & trim.",
+    "MentorDiscovery.jsx: FilterPanel is defined as a JSX const then rendered twice (sidebar + drawer). This is the root cause of duplicate testids and also duplicates radio input `name='price'` groups — could theoretically cross-affect radio grouping if both are visible.",
+    "vicharo.js mentorLanguages: contains an entry that no mentor speaks — dead filter chip. Data quality issue.",
+    "The `toggle` helper at line 39 uses expression-statement ternary (`next.has(v) ? next.delete(v) : next.add(v);`) — works but eslint's no-unused-expressions could flag it. Prefer `if/else`."
+  ],
+  "updated_files": [
+    "/app/frontend/src/pages/MentorDiscovery.jsx (fixed Data & AI testid regex)"
+  ],
+  "success_rate": {"backend": "N/A (not tested per request)", "frontend": "94% (16/17 review items pass; 1 testid bug fixed inline; 1 testability concern flagged)"},
+  "test_credentials": "None required — public page.",
+  "seed_data_creation": "None.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Discovery filters, search, sort, URL sync, empty state, mobile drawer, mentor navigation all verified. Regression on /mentors/m1 profile page confirmed (bio, expertise-list, experience-list, session-types, availability, reviews, related, hero-book-btn all render). Two open items are non-blocking: (a) duplicate testids across sidebar+drawer FilterPanel — use .nth() or add namespace, (b) mentorLanguages data cleanup for Malayalam. Backend was not touched in this iteration.",
+  "rca_of_the_issue": "Root cause of the fixed bug: `'Data & AI'.toLowerCase().replace(/\\s+|&/g, '-')` iterates the global regex over three consecutive matches — ' ', '&', ' ' — each replaced independently with '-', producing 'data---ai'. Mitigation: use a single alternation class `[&\\s]+` so the whole ' & ' is one match, and add dash-collapse + trim as belt-and-braces for future domains like 'AI / ML'. Reproduction: visit /mentors, `document.querySelector('[data-testid=\"filter-domain-data-ai\"]')` returned null before the fix; returns the Data & AI chip after the fix."
+}

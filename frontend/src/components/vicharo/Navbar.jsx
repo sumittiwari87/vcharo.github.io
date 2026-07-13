@@ -1,34 +1,36 @@
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '../ui/button';
 
 const links = [
-  { label: 'How it works', href: '#how-it-works' },
-  { label: 'Mentors', href: '#mentors' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'About', href: '#about' },
+  { label: 'How it works', href: '/#how-it-works' },
+  { label: 'Mentors', href: '/mentors' },
+  { label: 'Pricing', href: '/#pricing' },
+  { label: 'About', href: '/#about' },
 ];
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   return (
     <header className="sticky top-0 z-40 border-b border-black/10 bg-paper/85 backdrop-blur">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href="#top" data-testid="navbar-logo" className="flex items-baseline gap-2">
+        <Link to="/" data-testid="navbar-logo" className="flex items-baseline gap-2">
           <span className="font-serif text-2xl font-bold tracking-tight text-navy">VICHARO</span>
           <span className="font-devanagari text-lg text-saffron leading-none">विचार</span>
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-10 md:flex">
           {links.map((l) => (
             <li key={l.href}>
-              <a
+              <Link
                 data-testid={`nav-link-${l.label.toLowerCase().replace(/\s+/g, '-')}`}
-                href={l.href}
+                to={l.href}
                 className="text-sm text-navy/80 transition-colors duration-200 hover:text-saffron"
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -43,7 +45,7 @@ export const Navbar = () => {
           </a>
           <Button
             data-testid="navbar-get-started-btn"
-            onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => navigate('/mentors')}
             className="btn-tactile-inverse rounded-none border border-navy bg-navy px-5 py-5 font-sans text-sm text-paper hover:bg-navy"
           >
             Get Started
@@ -65,14 +67,14 @@ export const Navbar = () => {
           <ul className="flex flex-col gap-4">
             {links.map((l) => (
               <li key={l.href}>
-                <a
+                <Link
                   data-testid={`nav-mobile-link-${l.label.toLowerCase().replace(/\s+/g, '-')}`}
-                  href={l.href}
+                  to={l.href}
                   onClick={() => setOpen(false)}
                   className="text-base text-navy"
                 >
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
             <li>
@@ -85,7 +87,7 @@ export const Navbar = () => {
                 data-testid="nav-mobile-get-started-btn"
                 onClick={() => {
                   setOpen(false);
-                  document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
+                  navigate('/mentors');
                 }}
                 className="rounded-none w-full border border-navy bg-navy py-6 text-paper hover:bg-navy"
               >

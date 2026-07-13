@@ -133,10 +133,19 @@ Base URL (dev): `${REACT_APP_BACKEND_URL}/api`
 - [ ] SEO: title, meta description, sitemap.xml, robots.txt
 
 ### P0 — Core marketplace (next big module)
-- [ ] Mentor discovery / filter page (`/mentors`)
+- [x] Mentor discovery / filter page (`/mentors`) — ✅ done Dec 13, 2025 (domain/price/language filters, search, sort, URL-synced, empty state)
 - [x] Individual mentor profile page (`/mentors/:id`) — ✅ done Dec 13, 2025
 - [ ] Mentee signup + Mentor onboarding auth flows
 - [ ] Mentor application form + admin approval flow
+
+### Ideas surfaced by testing/design agents (backlog)
+- [ ] **Booking API refactor** — replace the `POST /api/waitlist` mock used inside `MentorProfile.jsx > requestBooking` with a real `POST /api/bookings` endpoint (fields: mentor_id, session_type_id, day, slot, mentee_email/id, price, status).
+- [ ] **Split MentorProfile.jsx** — currently ~500 lines. Extract sub-components: `BookingWidget`, `ExperienceTimeline`, `ReviewsGrid`, `RelatedMentors` for easier future edits.
+- [ ] **SEO on 404 / mentor profile** — add helmet `<meta name="robots" content="noindex">` on the mentor-not-found state; add per-mentor page title + og:image on profile pages.
+- [ ] **Docs/tests must use real-domain example emails** — Pydantic `EmailStr` rejects reserved TLDs like `.test` / `.example`; use `@example.com` in demos.
+- [ ] **"Save mentor" bookmark** on profile card — lead-magnet: capture email in exchange for saved list; typically +30% return-visit conversion.
+- [ ] **Compare mentors** — pick 2–3 from discovery and side-by-side compare price / rating / expertise / availability.
+- [ ] **Domain deep-links** — clicking a Featured Category on the landing page should route to `/mentors?domain=Technology` (already URL-supported, just needs the link wiring).
 
 ### P0 — Booking & Payments
 - [ ] Booking / calendar integration (Cal.com embed or custom)
@@ -204,6 +213,7 @@ curl -s -X POST "$API/api/waitlist" -H "Content-Type: application/json" \
 | ---------- | --------------------------------------------------------------- |
 | 2025-12-13 | v1 landing page live — 13 sections, waitlist API, testing green |
 | 2025-12-13 | Added `/mentors/:id` profile page — hero, bio, expertise, career, booking widget, reviews, related mentors. Landing mentor cards now route to the profile. |
+| 2025-12-13 | Added `/mentors` discovery page — 10 mentors, domain/price/language filters, search, sort, URL-synced filters, mobile drawer. Navbar links wired to route. Added agent-flagged improvement backlog to README. |
 
 _This README is the live source of truth for scope + status. It will be updated
 after every feature, fix, or scope change._

@@ -68,7 +68,7 @@ export const mentors = [
     photo: 'https://images.pexels.com/photos/7580761/pexels-photo-7580761.jpeg',
     tag: 'Backend · Distributed Systems',
     location: 'Bengaluru, India',
-    languages: ['English', 'हिन्दी', 'मल्यालम्'],
+    languages: ['English', 'हिन्दी', 'മലയാളം'],
     yearsExp: 14,
     bio: 'I lead the core payments engineering team at Razorpay. Before this, I spent 6 years at Flipkart and 3 years at a Series-A startup that got acquired. I have interviewed 300+ engineers and mentored 40+ into their first tech role. My style: brutally honest, deeply structured, no fluff.',
     expertise: [
@@ -437,7 +437,7 @@ mentors.push(
 );
 
 export const mentorDomains = ['Technology', 'Product', 'Design', 'Finance', 'Consulting', 'Data & AI'];
-export const mentorLanguages = ['English', 'हिन्दी', 'தமிழ்', 'मराठी', 'ಕನ್ನಡ', 'മലയാളം', 'ગુજરાતી', 'ਪੰਜਾਬੀ', 'മല്യാളം'];
+export const mentorLanguages = ['English', 'हिन्दी', 'தமிழ்', 'मराठी', 'ಕನ್ನಡ', 'മലയാളം', 'ગુજરાતી', 'ਪੰਜਾਬੀ'];
 
 export const testimonials = [
   {

@@ -214,6 +214,7 @@ curl -s -X POST "$API/api/waitlist" -H "Content-Type: application/json" \
 | 2025-12-13 | v1 landing page live — 13 sections, waitlist API, testing green |
 | 2025-12-13 | Added `/mentors/:id` profile page — hero, bio, expertise, career, booking widget, reviews, related mentors. Landing mentor cards now route to the profile. |
 | 2025-12-13 | Added `/mentors` discovery page — 10 mentors, domain/price/language filters, search, sort, URL-synced filters, mobile drawer. Navbar links wired to route. Added agent-flagged improvement backlog to README. |
+| 2025-12-13 | Testing iteration 3: 94% pass. Fixed testid regex for 'Data & AI' domain (via testing agent), cleaned duplicate Malayalam entries in language filter, normalised m1's language to devanagari-free `മലയാളം`. |
 
 _This README is the live source of truth for scope + status. It will be updated
 after every feature, fix, or scope change._

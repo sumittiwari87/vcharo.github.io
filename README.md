@@ -146,6 +146,11 @@ Base URL (dev): `${REACT_APP_BACKEND_URL}/api`
 - [ ] **"Save mentor" bookmark** on profile card — lead-magnet: capture email in exchange for saved list; typically +30% return-visit conversion.
 - [ ] **Compare mentors** — pick 2–3 from discovery and side-by-side compare price / rating / expertise / availability.
 - [ ] **Domain deep-links** — clicking a Featured Category on the landing page should route to `/mentors?domain=Technology` (already URL-supported, just needs the link wiring).
+- [ ] **Namespace mobile-drawer testids** — `MentorDiscovery.jsx` renders the same `FilterPanel` JSX twice (sidebar + mobile drawer). At mobile viewports with the drawer open, every filter chip has two matching `data-testid` nodes. Fix by either (a) rendering only one panel based on breakpoint state, or (b) adding a `-mobile` suffix in the drawer scope. Also collapses the duplicate `name='price'` radio group.
+- [ ] **Replace ternary side-effect in `toggle` helper** — `MentorDiscovery.jsx:39` uses `next.has(v) ? next.delete(v) : next.add(v);` (expression-statement). Convert to `if/else` — cleaner and passes stricter `no-unused-expressions` lint rules.
+- [ ] **Tighten "Under ₹1,500" price bucket** — currently matches `< 1500`, which includes ₹1,499 (Aarav Menon). Decide intent — either keep as `< 1500` (current) or shift to `< 1400` to feel like a real budget bucket.
+- [ ] **Error boundary at route level** — the `useNavigate is not defined` regression during dev showed the whole page crashed silently. Wrap each route in a small React error boundary that renders a "Something broke — go home" fallback.
+- [ ] **Console/network logs in production** — add a lightweight client error reporter (Sentry / LogRocket free tier) so we catch these dev-only regressions in prod too.
 
 ### P0 — Booking & Payments
 - [ ] Booking / calendar integration (Cal.com embed or custom)
@@ -215,6 +220,7 @@ curl -s -X POST "$API/api/waitlist" -H "Content-Type: application/json" \
 | 2025-12-13 | Added `/mentors/:id` profile page — hero, bio, expertise, career, booking widget, reviews, related mentors. Landing mentor cards now route to the profile. |
 | 2025-12-13 | Added `/mentors` discovery page — 10 mentors, domain/price/language filters, search, sort, URL-synced filters, mobile drawer. Navbar links wired to route. Added agent-flagged improvement backlog to README. |
 | 2025-12-13 | Testing iteration 3: 94% pass. Fixed testid regex for 'Data & AI' domain (via testing agent), cleaned duplicate Malayalam entries in language filter, normalised m1's language to devanagari-free `മലയാളം`. |
+| 2025-12-13 | Appended all iteration-3 agent-surfaced ideas into the backlog: mobile-drawer testid namespacing, `toggle` helper refactor, price bucket tightening, route-level error boundaries, prod error reporting. |
 
 _This README is the live source of truth for scope + status. It will be updated
 after every feature, fix, or scope change._

@@ -1,0 +1,79 @@
+{
+  "summary": "Iteration 5 (report file iteration_4.json) — Frontend-only verification of the mentor/team/testimonial/mentee photo bug fix. All required cards load without broken images, gender matches name, and object-top / face-focused crop is applied where required. No JS errors on any page. Filter/search on /mentors still works. Login flow still works and mentor dashboard renders the correct mentee thumbnails.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "MentorProfile hero (/mentors/:id)", "issues": ["MentorProfile.jsx line 136 hero <img> only has 'object-cover' — 'object-top' from the review request is NOT applied. Faces are still visible in the tested profiles (m1 Aarav, m4 Priya, m10 Arjun) because the source photos are already face-cropped (customer-assets uploads + Unsplash ?crop=faces), so this is cosmetic. If a portrait with a lot of headroom is added later the forehead could be cut. Recommend adding 'object-top' to match the rest of the codebase (discovery cards, related-mentor thumbs, dashboard thumbs all already have it)."]}
+    ]
+  },
+  "verification_details": {
+    "mentors_discovery_page": {
+      "url": "/mentors",
+      "all_10_cards_load": true,
+      "all_have_object_top_class": true,
+      "gender_matches_name": {
+        "m1_Aarav_Menon_M": "MALE — bald male with sunglasses (customer-uploaded portrait)",
+        "m2_Nandini_Rao_F": "FEMALE — dark curly hair (Unsplash 1580489944761)",
+        "m3_Vikram_Shah_M": "MALE — dark hair, suit (Unsplash 1519085360753)",
+        "m4_Priya_Iyer_F": "FEMALE — long hair, jacket (customer-uploaded pexels-woman)",
+        "m5_Rahul_Verma_M": "MALE — glasses (Unsplash 1560250097)",
+        "m6_Sana_Fernandes_F": "FEMALE (Unsplash 1573496359142)",
+        "m7_Ananya_Krishnan_F": "FEMALE (Unsplash 1544005313)",
+        "m8_Kabir_Malhotra_M": "MALE — customer-uploaded 'Kabir - Data_AI.jpg'",
+        "m9_Divya_Menon_F": "FEMALE — long blonde-ish hair, verified via Design filter (Unsplash 1508214751196)",
+        "m10_Arjun_Bhatt_M": "MALE — bearded male, customer-uploaded 'Viktor - Data_AI.jpg'"
+      }
+    },
+    "mentor_profile_pages_checked": ["/mentors/m1", "/mentors/m4", "/mentors/m10"],
+    "about_leadership": {
+      "sushma_shukla_F": "FEMALE ✓",
+      "sumit_kumar_M": "MALE ✓",
+      "neeraj_kumar_M": "MALE ✓ (customer-uploaded lalithaakirankumar-person)",
+      "deepak_kumar_M": "MALE ✓",
+      "all_object_top": true
+    },
+    "about_team": {
+      "praveen_kumar_M": "MALE ✓",
+      "aditi_verma_F": "FEMALE ✓",
+      "rohan_iyer_M": "MALE ✓",
+      "kavita_menon_F": "FEMALE ✓",
+      "arjun_sharma_M": "MALE ✓ (backwards cap)",
+      "neha_bhatia_F": "FEMALE ✓",
+      "all_object_top": true
+    },
+    "testimonials_landing": {
+      "rohit_k_M": "MALE ✓",
+      "shreya_p_F": "FEMALE ✓",
+      "aditya_m_M": "MALE ✓",
+      "all_object_top": true
+    },
+    "mentor_dashboard_mentees_checked": {
+      "note": "Logged in as m1 Aarav Menon (Technology). Dashboard filters potential mentees by mentor domain so only Karthik Reddy (me3, Technology) appears in 'Matches'; Sneha Prakash (me2) shows in 'Journeys' (seeded accepted); Rohit Kulkarni (me1) + Karthik Reddy (me3) show in 'Requests received'. All three visible mentee avatars loaded (natW=600, object-cover object-top) and gender matches name. The remaining me4/me5/me6 photos were verified via HTTP HEAD (all 200 OK) and via inspection of /app/frontend/src/data/dashboard.js — same Unsplash face-crop pattern.",
+      "urls_all_return_200": true
+    },
+    "regression_smoke": {
+      "pages_loaded_without_js_errors": ["/", "/pricing", "/how-it-works", "/mentors", "/about"],
+      "mentors_search_priya_returns": 1,
+      "mentors_design_filter_returns": 2,
+      "login_flow_mentor_role": "OK — email 'aarav@example.com' + password 'password123' via login-role-mentor → landed on /dashboard/mentor"
+    }
+  },
+  "test_report_links": ["/app/test_reports/mentors_page.png", "/app/test_reports/about_page.png", "/app/test_reports/about_team_bottom.png", "/app/test_reports/m1_aarav.png", "/app/test_reports/m4_priya.png", "/app/test_reports/m10_arjun.png", "/app/test_reports/mentor_dashboard.png", "/app/test_reports/landing_testimonials.png"],
+  "action_items": [
+    "OPTIONAL / cosmetic: Add 'object-top' class to the hero <img> in /app/frontend/src/pages/MentorProfile.jsx line 136 to match the review request and codebase convention. Currently only 'object-cover' is applied. No visible face-crop bug today because all portraits are already face-cropped, so main agent may choose to skip."
+  ],
+  "critical_code_review_comments": [
+    "vcharo.js is 717 lines — approaching the 700-line soft limit; consider splitting into mentors.js / team.js / pricing.js / about.js for maintainability.",
+    "MentorProfile.jsx hero image is the only face-photo in the app that does not have 'object-top'. Convention drift — all other face imgs (FeaturedMentors, MentorDiscovery, AboutPage team, Testimonials, MentorDashboard, MenteeDashboard, MentorProfile related-mentor thumbs) have it."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend-only iteration)", "frontend": "100%"},
+  "test_credentials": "Any email + any 6+ char password works on the login-email tab (demo auth). Used aarav@example.com / password123 for the mentor login.",
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Iteration 5 photo bug is fully verified. All 10 mentor cards, 4 leadership + 6 team cards, 3 testimonials, and mentee thumbs load with correct gender + object-top. Only remaining nit is MentorProfile.jsx line 136 hero missing 'object-top' — not user-visible today. LoginDialog uses testids navbar-login-link, login-role-mentor, login-email-input, login-password-input, login-email-submit; the submit button label is 'Sign in' (not 'Log in'). Mentor dashboard filters 'Matches in <domain>' by mentor's own domain so testing all 6 mentees on the mentor dashboard requires logging in as mentors with different domains.",
+  "rca of the issue": "Bug fix was already implemented in vcharo.js and dashboard.js by main agent — female-named mentors/team now use female-featured Unsplash / customer-uploaded photos, male-named use male photos. All face-focused imgs use ?crop=faces on Unsplash side and 'object-top' Tailwind class on the DOM side to keep the face inside the fixed-height card. Verified end-to-end with Playwright."
+}

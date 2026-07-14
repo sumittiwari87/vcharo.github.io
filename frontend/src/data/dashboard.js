@@ -10,7 +10,7 @@ export const mockMentees = [
     domains: ['Product'],
     languages: ['English', 'हिन्दी', 'मराठी'],
     budget: 2000,
-    photo: 'https://images.pexels.com/photos/5862268/pexels-photo-5862268.jpeg?auto=compress&cs=tinysrgb&h=200',
+    photo: 'https://images.unsplash.com/photo-1521119989659-a83eee488004?w=600&h=800&fit=crop&crop=faces&auto=format',
     bio: 'Building a food-delivery side project. Want to make the switch from IT services to product.',
   },
   {
@@ -22,7 +22,7 @@ export const mockMentees = [
     domains: ['Data & AI'],
     languages: ['English', 'தமிழ்', 'हिन्दी'],
     budget: 2500,
-    photo: 'https://images.pexels.com/photos/9159272/pexels-photo-9159272.jpeg?auto=compress&cs=tinysrgb&h=200',
+    photo: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=600&h=800&fit=crop&crop=faces&auto=format',
     bio: 'SQL-heavy for 2 years. Ready to invest in a 90-day plan for DS interview prep.',
   },
   {
@@ -34,7 +34,7 @@ export const mockMentees = [
     domains: ['Technology'],
     languages: ['English', 'हिन्दी'],
     budget: 1800,
-    photo: 'https://images.pexels.com/photos/7580761/pexels-photo-7580761.jpeg?auto=compress&cs=tinysrgb&h=200',
+    photo: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=600&h=800&fit=crop&crop=faces&auto=format',
     bio: '3 YOE Java backend. Trying to switch out of service into a Razorpay/Swiggy-scale team.',
   },
   {
@@ -46,7 +46,7 @@ export const mockMentees = [
     domains: ['Design'],
     languages: ['English', 'हिन्दी'],
     budget: 1500,
-    photo: 'https://images.pexels.com/photos/7580822/pexels-photo-7580822.jpeg?auto=compress&cs=tinysrgb&h=200',
+    photo: 'https://images.unsplash.com/photo-1592621385612-4d7129426394?w=600&h=800&fit=crop&crop=faces&auto=format',
     bio: 'Portfolio strong on branding but weak on product case studies. Need direction.',
   },
   {
@@ -58,7 +58,7 @@ export const mockMentees = [
     domains: ['Consulting'],
     languages: ['English', 'हिन्दी'],
     budget: 2200,
-    photo: 'https://images.pexels.com/photos/5862268/pexels-photo-5862268.jpeg?auto=compress&cs=tinysrgb&h=200&sat=-20',
+    photo: 'https://images.unsplash.com/photo-1614289371518-722f2615943d?w=600&h=800&fit=crop&crop=faces&auto=format',
     bio: 'Cleared MBB round 1 last cycle; need case-round drills.',
   },
   {
@@ -70,7 +70,7 @@ export const mockMentees = [
     domains: ['Product'],
     languages: ['English', 'മലയാളം'],
     budget: 1900,
-    photo: 'https://images.pexels.com/photos/9159272/pexels-photo-9159272.jpeg?auto=compress&cs=tinysrgb&h=200&sat=-20',
+    photo: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&h=800&fit=crop&crop=faces&auto=format',
     bio: 'Currently in the middle of my PM internship. Need help framing my final review project.',
   },
 ];

@@ -479,7 +479,7 @@ export default function MentorProfilePage() {
                 <img
                   src={m.photo}
                   alt={m.name}
-                  className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-56 w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="flex flex-1 flex-col p-6">

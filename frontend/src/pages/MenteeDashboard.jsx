@@ -367,7 +367,7 @@ const MatchedMentors = ({ profile }) => {
             data-testid={`mentee-match-${m.id}`}
             className="group border border-black/15 bg-paper transition-colors hover:border-navy"
           >
-            <img src={m.photo} alt={m.name} className="h-40 w-full object-cover" loading="lazy" />
+            <img src={m.photo} alt={m.name} className="h-40 w-full object-cover object-top" loading="lazy" />
             <div className="p-4">
               <div className="text-[10px] uppercase tracking-widest text-saffron">{m.domain}</div>
               <div className="mt-2 font-serif text-lg font-semibold text-navy group-hover:text-saffron">{m.name}</div>

@@ -33,7 +33,7 @@ export const Testimonials = () => {
                 <img
                   src={t.photo}
                   alt={t.name}
-                  className="h-11 w-11 rounded-full object-cover border border-black/10"
+                  className="h-11 w-11 rounded-full object-cover object-top border border-black/10"
                   loading="lazy"
                 />
                 <div>

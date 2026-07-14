@@ -416,7 +416,7 @@ export default function MentorDashboardPage() {
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2" data-testid="mentor-potential-list">
               {potential.map((me) => (
                 <div key={me.id} data-testid={`mentor-potential-${me.id}`} className="flex gap-4 border border-black/15 bg-paper p-5">
-                  <img src={me.photo} alt={me.name} className="h-16 w-16 object-cover" />
+                  <img src={me.photo} alt={me.name} className="h-16 w-16 object-cover object-top" />
                   <div className="flex-1">
                     <div className="font-serif text-lg font-semibold text-navy">{me.name}</div>
                     <div className="text-xs text-navy/60">{me.currentRole}</div>
@@ -453,7 +453,7 @@ export default function MentorDashboardPage() {
                 return (
                   <div key={r.id} data-testid={`mentor-current-${r.id}`} className="border border-navy bg-navy p-5 text-paper">
                     <div className="flex gap-4">
-                      <img src={me.photo} alt={me.name} className="h-14 w-14 object-cover" />
+                      <img src={me.photo} alt={me.name} className="h-14 w-14 object-cover object-top" />
                       <div className="flex-1">
                         <div className="font-serif text-lg font-semibold text-paper">{me.name}</div>
                         <div className="text-xs text-paper/70">{me.currentRole}</div>
@@ -488,7 +488,7 @@ export default function MentorDashboardPage() {
                     data-testid={`mentor-incoming-${r.id}`}
                     className="flex flex-col gap-4 border border-black/15 bg-paper p-5 sm:flex-row sm:items-center"
                   >
-                    <img src={me.photo} alt={me.name} className="h-14 w-14 object-cover" />
+                    <img src={me.photo} alt={me.name} className="h-14 w-14 object-cover object-top" />
                     <div className="flex-1">
                       <div className="font-serif text-lg font-semibold text-navy">{me.name}</div>
                       <div className="text-xs text-navy/60">{me.city} · {me.currentRole}</div>
@@ -547,7 +547,7 @@ export default function MentorDashboardPage() {
                     data-testid={`mentor-sent-${r.id}`}
                     className="grid grid-cols-[auto_1fr_auto] items-center gap-4 border border-black/15 bg-paper px-5 py-3"
                   >
-                    <img src={me.photo} alt={me.name} className="h-10 w-10 object-cover" />
+                    <img src={me.photo} alt={me.name} className="h-10 w-10 object-cover object-top" />
                     <div>
                       <div className="text-sm font-medium text-navy">{me.name}</div>
                       <div className="text-xs text-navy/60">Offered ₹{r.customPrice} · {r.note?.slice(0, 60) || 'No note'}</div>

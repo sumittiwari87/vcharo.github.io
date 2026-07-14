@@ -361,7 +361,7 @@ export default function MentorDiscoveryPage() {
                         src={m.photo}
                         alt={m.name}
                         loading="lazy"
-                        className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="h-56 w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute left-3 top-3 border border-black/10 bg-paper/95 px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest text-navy">
                         {m.domain}

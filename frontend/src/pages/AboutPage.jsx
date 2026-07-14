@@ -16,7 +16,7 @@ const PersonCard = ({ p, size = 'lg', testId }) => (
         src={p.photo}
         alt={p.name}
         loading="lazy"
-        className={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${size === 'lg' ? 'h-72' : 'h-56'}`}
+        className={`w-full object-cover object-top transition-transform duration-500 group-hover:scale-105 ${size === 'lg' ? 'h-72' : 'h-56'}`}
       />
       <a
         href={p.linkedin}

@@ -557,3 +557,161 @@ export const whyPoints = [
   { title: 'Accountability tracking', body: 'Milestones, streaks, and quiet nudges. You show up, or your mentor knows.', hindi: 'ज़िम्मेदारी' },
   { title: 'Indian pricing', body: '₹1,299 / session onwards. UPI, ₹, EMI on journeys — built for the Indian wallet.', hindi: 'सुलभ' },
 ];
+
+// ---------------------- Pricing page data ----------------------
+export const mentorEconomics = {
+  payoutPct: 80,
+  platformFeePct: 20,
+  payoutWindow: '48 hours',
+  examples: [
+    { sessionPrice: 1299, mentorKeeps: 1039, platformFee: 260, label: 'Portfolio review · 45 min' },
+    { sessionPrice: 1499, mentorKeeps: 1199, platformFee: 300, label: '1:1 mentoring · 45 min' },
+    { sessionPrice: 1899, mentorKeeps: 1519, platformFee: 380, label: 'Product interview loop · 45 min' },
+    { sessionPrice: 2499, mentorKeeps: 1999, platformFee: 500, label: 'Mock system-design · 60 min' },
+    { sessionPrice: 4999, mentorKeeps: 3999, platformFee: 1000, label: 'Monthly Journey · 4 sessions' },
+  ],
+};
+
+export const refundEvidence = {
+  qualifies: [
+    'Session recording (with mentor\u2019s consent) or verbatim transcript excerpts',
+    'Written journey doc showing the mentor did not deliver stated action items',
+    'Timestamped screenshots or chat logs of the session',
+    'A second-mentor peer review \u2014 Vcharo can arrange one, free of charge',
+    'Mentor no-show, or cancellation without 24-hour notice',
+  ],
+  doesNotQualify: [
+    'Vague dissatisfaction with no specific examples',
+    'You did not do the pre-work / homework the mentor assigned',
+    'You expected a job offer or placement as an outcome',
+    'Session was helpful but you changed your mind after the fact',
+    'A single stylistic difference (e.g., "too direct", "too gentle")',
+  ],
+};
+
+export const refundFlow = [
+  { n: '01', title: 'Raise it', body: 'Open a ticket from the session page within 7 days of the call. Attach your evidence.' },
+  { n: '02', title: 'Trust team review', body: 'The Vcharo Trust team reviews within 3 working days. We may ask the mentor for their side of the story.' },
+  { n: '03', title: 'Decision & refund', body: 'Full refund via the original payment method in 5\u20137 working days if the case qualifies.' },
+];
+
+export const pricingFaqs = [
+  { q: 'When exactly is my money released to the mentor?', a: 'Never before the session actually happens. Vcharo holds your payment in escrow. The mentor is paid only after the session ends and you have a 48-hour window to raise a refund case.' },
+  { q: 'What if the mentor no-shows?', a: '100% refund, no evidence needed, no questions asked. Refunded within 5 working days.' },
+  { q: 'How strong does my evidence for a quality refund have to be?', a: 'Concrete. A recording, transcript excerpt, journey doc, or screenshots. Vcharo\u2019s mentors are handpicked (under 8% of applicants make it through) so quality complaints are rare \u2014 which is exactly why we ask for real evidence rather than a rating alone.' },
+  { q: 'Do you offer any free options?', a: 'Every mentor offers a free 15-minute intro call before you commit. It is a hard requirement to be listed on Vcharo.' },
+  { q: 'Is there a subscription lock-in?', a: 'No. Journey plans are monthly and cancellable at any time. Single sessions are one-off.' },
+  { q: 'Which payment methods do you accept?', a: 'UPI, credit/debit cards, netbanking. EMI is available on Journey plans through our payment partner.' },
+  { q: 'How much does Vcharo take from mentors?', a: 'A flat 20% platform fee. The mentor keeps 80% \u2014 among the highest payouts in the Indian mentoring space. No signup fee, no monthly listing fee.' },
+];
+
+// ---------------------- About page data ----------------------
+export const beliefs = [
+  { title: 'Access, not gatekeeping', hindi: '\u092a\u0939\u0941\u0901\u091a', body: 'Talent is evenly distributed across India. Access to it is not. We exist to close that gap.' },
+  { title: 'Structure, not vibes', hindi: '\u0938\u0902\u0930\u091a\u0928\u093e', body: 'A one-off 30-minute call rarely changes a career. A 90-day structured journey with action items does.' },
+  { title: 'Verified, not viral', hindi: '\u0938\u0924\u094d\u092f\u093e\u092a\u093f\u0924', body: 'We choose 8% acceptance for mentors over a "1,000 mentors" claim. Human-reviewed, always.' },
+  { title: '\u20b9, not $', hindi: '\u092d\u093e\u0930\u0924\u0940\u092f \u092e\u0942\u0932\u094d\u092f', body: 'Priced for the Indian wallet from day one. UPI, EMI on Journeys, and no dollar-denominated pricing.' },
+];
+
+export const teamLeadership = [
+  {
+    id: 'sushma-shukla',
+    name: 'Sushma Shukla',
+    role: 'Chief Executive Officer',
+    city: 'Bengaluru',
+    photo: 'https://images.pexels.com/photos/9159272/pexels-photo-9159272.jpeg?auto=compress&cs=tinysrgb&h=520&fit=crop',
+    owns: 'Company strategy, mentor partnerships, board.',
+    linkedin: '#',
+  },
+  {
+    id: 'sumit-kumar',
+    name: 'Sumit Kumar',
+    role: 'Founder',
+    city: 'Bengaluru',
+    photo: 'https://images.pexels.com/photos/7580761/pexels-photo-7580761.jpeg?auto=compress&cs=tinysrgb&h=520&fit=crop',
+    owns: 'Product vision, mentee experience, growth loops.',
+    linkedin: '#',
+  },
+  {
+    id: 'neeraj-kumar',
+    name: 'Neeraj Kumar',
+    role: 'Founder',
+    city: 'Delhi NCR',
+    photo: 'https://images.pexels.com/photos/5862268/pexels-photo-5862268.jpeg?auto=compress&cs=tinysrgb&h=520&fit=crop',
+    owns: 'Operations, mentor onboarding, trust & safety.',
+    linkedin: '#',
+  },
+  {
+    id: 'deepak-kumar',
+    name: 'Deepak Kumar',
+    role: 'Chief Technology Officer',
+    city: 'Bengaluru',
+    photo: 'https://images.pexels.com/photos/7580822/pexels-photo-7580822.jpeg?auto=compress&cs=tinysrgb&h=520&fit=crop',
+    owns: 'Engineering, platform reliability, security.',
+    linkedin: '#',
+  },
+];
+
+export const teamMembers = [
+  {
+    id: 'praveen-kumar',
+    name: 'Praveen Kumar',
+    role: 'Chief AI Architect',
+    city: 'Bengaluru',
+    photo: 'https://images.pexels.com/photos/7580761/pexels-photo-7580761.jpeg?auto=compress&cs=tinysrgb&h=360&fit=crop&sat=-20',
+    owns: 'Mentor-mentee matching, recommendation systems.',
+    linkedin: '#',
+  },
+  {
+    id: 'aditi-verma',
+    name: 'Aditi Verma',
+    role: 'Head of Growth',
+    city: 'Mumbai',
+    photo: 'https://images.pexels.com/photos/7580822/pexels-photo-7580822.jpeg?auto=compress&cs=tinysrgb&h=360&fit=crop&sat=-20',
+    owns: 'Acquisition, brand, campaigns in Tier 2/3 India.',
+    linkedin: '#',
+  },
+  {
+    id: 'rohan-iyer',
+    name: 'Rohan Iyer',
+    role: 'Head of Mentor Success',
+    city: 'Bengaluru',
+    photo: 'https://images.pexels.com/photos/5862268/pexels-photo-5862268.jpeg?auto=compress&cs=tinysrgb&h=360&fit=crop&sat=-20',
+    owns: 'Mentor onboarding, quality reviews, training program.',
+    linkedin: '#',
+  },
+  {
+    id: 'kavita-menon',
+    name: 'Kavita Menon',
+    role: 'Head of Trust & Safety',
+    city: 'Kochi',
+    photo: 'https://images.pexels.com/photos/9159272/pexels-photo-9159272.jpeg?auto=compress&cs=tinysrgb&h=360&fit=crop&sat=-20',
+    owns: 'Verification, refunds, incident response.',
+    linkedin: '#',
+  },
+  {
+    id: 'arjun-sharma',
+    name: 'Arjun Sharma',
+    role: 'Head of Design',
+    city: 'Bengaluru',
+    photo: 'https://images.pexels.com/photos/7580761/pexels-photo-7580761.jpeg?auto=compress&cs=tinysrgb&h=360&fit=crop',
+    owns: 'Product design, design system, mentor-portfolio UX.',
+    linkedin: '#',
+  },
+  {
+    id: 'neha-bhatia',
+    name: 'Neha Bhatia',
+    role: 'Head of Community',
+    city: 'Pune',
+    photo: 'https://images.pexels.com/photos/7580822/pexels-photo-7580822.jpeg?auto=compress&cs=tinysrgb&h=360&fit=crop',
+    owns: 'Cohort programs, mentee circles, alumni network.',
+    linkedin: '#',
+  },
+];
+
+export const advisors = [
+  { name: 'Ex-Flipkart · VP Product', tag: 'Advises on scaling marketplaces' },
+  { name: 'Ex-Razorpay · Engineering', tag: 'Advises on payments + escrow' },
+  { name: 'Ex-McKinsey · Partner', tag: 'Advises on strategy and expansion' },
+  { name: 'Ex-Meta · Design Lead', tag: 'Advises on brand and product design' },
+];

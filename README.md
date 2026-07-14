@@ -128,6 +128,8 @@ Base URL (dev): `${REACT_APP_BACKEND_URL}/api`
 - [x] **Mentee dashboard `/dashboard/mentee`** — editable profile (name, city, role, goal, domains, languages, budget, bio), resume upload (client-side), GitHub connect (mocked, pick up to 4 repos), matched mentors (client-side scored recommendation from the 10-mentor list), empty sessions state.
 - [x] **Mentor dashboard `/dashboard/mentor`** — inline-editable public profile (title, tag, bio, expertise, session prices) that immediately reflects on `/mentors/:id`. Potential mentees (domain-matched), Current mentees, Incoming requests (Accept/Decline), Sent requests. Custom-price dialog enforces `offer ≤ public price`.
 - [x] **Storage abstraction lib** — `session.js`, `mentorStore.js`, `menteeStore.js`, `requestsStore.js` all wrap `localStorage` behind an API-shaped interface so swapping to real backend is a one-file change.
+- [x] **Dedicated `/pricing` page** — mentee/mentor track switcher (URL-synced `?side=mentor`), mentor economics (80/20 split, payout window, earnings table with 5 examples), "your money is safe" section (qualifies vs does-not-qualify for refund, evidence list), 3-step refund flow, 7-question payments FAQ, final CTA. Navbar Pricing now routes here.
+- [x] **Dedicated `/about` page** — hero, our-story editorial, vision pull-quote + 4 vision bullets, 4 belief cards with Devanagari accents, traction stats, leadership row (Sushma Shukla · Sumit Kumar · Neeraj Kumar · Deepak Kumar), 6-person "also on the team" row (Praveen Kumar + 5 imaginary), 4-advisor strip, careers + press band, waitlist CTA. Navbar About now routes here.
 
 ---
 
@@ -232,6 +234,7 @@ curl -s -X POST "$API/api/waitlist" -H "Content-Type: application/json" \
 | 2025-12-13 | Testing iteration 3: 94% pass. Fixed testid regex for 'Data & AI' domain (via testing agent), cleaned duplicate Malayalam entries in language filter, normalised m1's language to devanagari-free `മലയാളം`. |
 | 2025-12-13 | Appended all iteration-3 agent-surfaced ideas into the backlog: mobile-drawer testid namespacing, `toggle` helper refactor, price bucket tightening, route-level error boundaries, prod error reporting. |
 | 2025-12-14 | Hard rename VICHARO → Vcharo across code + docs. Added `/how-it-works` page, login dialog (mocked), mentee dashboard, mentor dashboard. Introduced storage abstraction lib (`/src/lib/*`) so future backend swap is one-file change. |
+| 2025-12-14 | Added `/pricing` page (mentee/mentor track, escrow story, refund evidence rules, 3-step refund flow, 7-Q FAQ) and `/about` page (story, vision, beliefs, leadership + team + advisors, careers/press band). Navbar Pricing and About now route to dedicated pages. Testing agent skipped per user instruction. |
 
 _This README is the live source of truth for scope + status. It will be updated
 after every feature, fix, or scope change._

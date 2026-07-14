@@ -168,7 +168,63 @@ _Format: chronological, grouped by phase. This is the running spec._
 
 ---
 
+---
+
+## Session 6 — Pricing page + About page
+
+### 6A. Dedicated `/pricing` page
+- Track switcher (Mentee / Mentor) URL-synced (`?side=mentor`).
+- **Mentee side:** reuses landing Pricing component (3 plans) + payment-methods strip (UPI · Cards · Netbanking · EMI on Journeys).
+- **Mentor side:** new mentor-economics section — 80% payout / 20% platform fee, payout window (48h), NEFT/IMPS transfer, escrow-backed. Earnings-example table with 5 session tiers showing "You keep" column.
+- **Your money is safe** section — two-column card comparing what qualifies for refund (session recording, transcript, journey doc showing missed action items, screenshots, second-mentor peer review, mentor no-show) vs what doesn't (vague dissatisfaction, no pre-work by mentee, expected job outcome, changed-mind, single stylistic preference).
+- Refund flow (3 numbered steps: Raise → Trust team review 3wd → Decision + refund 5–7wd).
+- 7-question payments FAQ (accordion).
+- Final CTA → `/mentors`.
+
+### 6B. Dedicated `/about` page
+- **Hero:** "We're building the mentor network Tier 2/3 India never had."
+- **Our story:** 3-paragraph editorial (gap, insight, bet).
+- **Vision block:** big pull-quote — "By 2030, every ambitious student in India — regardless of city, college, or connections — should be one search away from a senior expert in their field." + 4 vision bullets (language coverage, price ceilings, Vcharo Scholars program, mentor training).
+- **Beliefs:** 4 principle cards — Access not gatekeeping · Structure not vibes · Verified not viral · ₹ not $. Devanagari sub-labels.
+- **Traction strip:** reuse landing stats (mentors, sessions, cities, rating).
+- **Leadership row (4 cards):**
+  - Sushma Shukla — CEO
+  - Sumit Kumar — Founder
+  - Neeraj Kumar — Founder
+  - Deepak Kumar — CTO
+- **Also on the team (6 cards):**
+  - Praveen Kumar — Chief AI Architect
+  - Aditi Verma — Head of Growth (imaginary)
+  - Rohan Iyer — Head of Mentor Success (imaginary)
+  - Kavita Menon — Head of Trust & Safety (imaginary)
+  - Arjun Sharma — Head of Design (imaginary)
+  - Neha Bhatia — Head of Community (imaginary)
+- **Advisors strip:** 4 anonymised advisor tags (ex-Flipkart / Razorpay / McKinsey / Meta).
+- **Careers + Press bar:** careers@vcharo.com, press@vcharo.com, hello@vcharo.com, Bengaluru address.
+- Reuses `CTABand` (waitlist) at the bottom.
+
+### 6C. Nav wiring
+- Navbar `Pricing` link → `/pricing`
+- Navbar `About` link → `/about`
+- Both replace the previous hash-anchor links to landing sections.
+
+### 6D. Constraints (this session)
+- **Skip testing agent** (user directive — takes too much time).
+- Static data only (no CMS, no LinkedIn scraping).
+- Team photos are stock; no attempt to represent the actual named individuals visually.
+
+### 6E. Deliverables
+- `/app/frontend/src/pages/PricingPage.jsx` (new)
+- `/app/frontend/src/pages/AboutPage.jsx` (new)
+- `/app/frontend/src/data/vcharo.js` — added `mentorEconomics`, `refundEvidence`, `refundFlow`, `pricingFaqs`, `beliefs`, `teamLeadership`, `teamMembers`, `advisors`
+- `/app/frontend/src/App.js` — routes `/pricing`, `/about`
+- `/app/frontend/src/components/vcharo/Navbar.jsx` — updated link hrefs
+- `Requirement.md` + `README.md` updated
+
+---
+
 ## Cross-cutting constraints
+
 
 - Stack stays: React (JS) + FastAPI + MongoDB.
 - All new backend routes prefixed with `/api`.

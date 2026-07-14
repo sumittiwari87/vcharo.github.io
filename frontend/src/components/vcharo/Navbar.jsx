@@ -8,8 +8,8 @@ import LoginDialog from './auth/LoginDialog';
 const links = [
   { label: 'How it works', href: '/how-it-works' },
   { label: 'Mentors', href: '/mentors' },
-  { label: 'Pricing', href: '/#pricing' },
-  { label: 'About', href: '/#about' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'About', href: '/about' },
 ];
 
 export const Navbar = () => {

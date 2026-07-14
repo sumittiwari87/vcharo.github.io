@@ -133,7 +133,7 @@ export default function MentorProfilePage() {
                 src={mentor.photo}
                 alt={mentor.name}
                 data-testid="mentor-hero-photo"
-                className="relative arch-top h-[480px] w-full border border-black/10 object-cover"
+                className="relative arch-top h-[480px] w-full border border-black/10 object-cover object-top"
               />
               {mentor.verified && (
                 <div

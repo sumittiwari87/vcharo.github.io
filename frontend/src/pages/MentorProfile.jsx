@@ -16,9 +16,10 @@ import { toast } from 'sonner';
 import axios from 'axios';
 import { Button } from '../components/ui/button';
 import { Toaster } from '../components/ui/sonner';
-import Navbar from '../components/vicharo/Navbar';
-import Footer from '../components/vicharo/Footer';
-import { getMentorById, mentors } from '../data/vicharo';
+import Navbar from '../components/vcharo/Navbar';
+import Footer from '../components/vcharo/Footer';
+import { mentors } from '../data/vcharo';
+import { getMentor } from '../lib/mentorStore';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -60,7 +61,7 @@ const NotFound = () => (
 export default function MentorProfilePage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const mentor = useMemo(() => getMentorById(id), [id]);
+  const mentor = useMemo(() => getMentor(id), [id]);
 
   const [selectedSessionIdx, setSelectedSessionIdx] = useState(1);
   const [selectedDay, setSelectedDay] = useState(null);
@@ -93,7 +94,7 @@ export default function MentorProfilePage() {
     try {
       // Booking is not built yet — reuse waitlist to capture interest.
       await axios.post(`${API}/waitlist`, {
-        email: `booking-request+${mentor.id}@vicharo.in`,
+        email: `booking-request+${mentor.id}@vcharo.in`,
         role: 'mentee',
         source: `mentor-${mentor.id}-${selectedDay}-${selectedSlot}`,
       });
@@ -139,7 +140,7 @@ export default function MentorProfilePage() {
                   data-testid="mentor-verified-badge"
                   className="absolute -bottom-4 left-6 z-10 inline-flex items-center gap-2 border border-navy bg-paper px-4 py-2 text-xs font-semibold uppercase tracking-widest text-navy shadow-sm"
                 >
-                  <Award size={14} className="text-saffron" /> VICHARO verified
+                  <Award size={14} className="text-saffron" /> Vcharo verified
                 </div>
               )}
             </div>

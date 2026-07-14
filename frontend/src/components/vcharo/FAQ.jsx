@@ -1,5 +1,5 @@
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../ui/accordion';
-import { faqs } from '../../data/vicharo';
+import { faqs } from '../../data/vcharo';
 
 export const FAQ = () => {
   return (
@@ -13,8 +13,8 @@ export const FAQ = () => {
           </h2>
           <p className="mt-6 text-sm leading-relaxed text-navy/70">
             Still curious? Reach us at{' '}
-            <a href="mailto:hello@vicharo.in" className="underline decoration-saffron underline-offset-4 hover:text-saffron">
-              hello@vicharo.in
+            <a href="mailto:hello@vcharo.in" className="underline decoration-saffron underline-offset-4 hover:text-saffron">
+              hello@vcharo.in
             </a>
             .
           </p>

@@ -1,4 +1,4 @@
-import { testimonials } from '../../data/vicharo';
+import { testimonials } from '../../data/vcharo';
 import { Quote } from 'lucide-react';
 
 export const Testimonials = () => {

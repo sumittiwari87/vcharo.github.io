@@ -1,4 +1,4 @@
-// Static seed data for VICHARO landing page
+// Static seed data for Vcharo landing page
 
 export const stats = [
   { value: '1,200+', label: 'Mentors onboarded' },
@@ -316,7 +316,7 @@ const lite = (over) => ({
   yearsExp: 8,
   languages: ['English', 'हिन्दी'],
   location: 'India',
-  bio: 'Verified VICHARO mentor. Full bio coming soon.',
+  bio: 'Verified Vcharo mentor. Full bio coming soon.',
   expertise: ['Career coaching', 'Interview prep', 'Portfolio review', 'Roadmap planning', 'Domain deep-dives'],
   experience: [{ company: over.title.split(', ')[1] || 'Undisclosed', role: over.title.split(', ')[0], period: '2020 – Now' }],
   education: [{ school: 'Undisclosed', degree: 'Undisclosed', period: '—' }],
@@ -442,7 +442,7 @@ export const mentorLanguages = ['English', 'हिन्दी', 'தமிழ�
 export const testimonials = [
   {
     quote:
-      'I switched from a Tier-3 college background into a product role at a fintech. My VICHARO mentor walked me through the interview loop for 11 weeks. It was the difference.',
+      'I switched from a Tier-3 college background into a product role at a fintech. My Vcharo mentor walked me through the interview loop for 11 weeks. It was the difference.',
     name: 'Rohit K.',
     city: 'Nagpur → Bengaluru',
     role: 'Associate PM',
@@ -450,7 +450,7 @@ export const testimonials = [
   },
   {
     quote:
-      'Mentorship in India was gate-kept behind LinkedIn DMs. VICHARO made a senior data leader accessible for ₹1,600 a session. My models actually got shipped.',
+      'Mentorship in India was gate-kept behind LinkedIn DMs. Vcharo made a senior data leader accessible for ₹1,600 a session. My models actually got shipped.',
     name: 'Shreya P.',
     city: 'Coimbatore',
     role: 'Data Scientist',
@@ -510,12 +510,12 @@ export const pricingPlans = [
 
 export const faqs = [
   {
-    q: 'Who are VICHARO mentors?',
+    q: 'Who are Vcharo mentors?',
     a: "Every mentor is a senior IC or leader (5+ years) at a recognised company. We manually verify LinkedIn, employment and references before onboarding — under 8% of applicants get through.",
   },
   {
     q: 'How is this different from a Topmate or ADPList link?',
-    a: 'VICHARO is structured. You get a shared journey doc, action items after every session, and an accountability tracker — not just a one-off 30-minute call that goes nowhere.',
+    a: 'Vcharo is structured. You get a shared journey doc, action items after every session, and an accountability tracker — not just a one-off 30-minute call that goes nowhere.',
   },
   {
     q: 'Do you support Tier 2 and Tier 3 cities?',
@@ -526,7 +526,7 @@ export const faqs = [
     a: 'Pay per session or subscribe to a journey. Money is held in escrow and only released to the mentor after the session. Full refund if the call does not happen.',
   },
   {
-    q: 'Can I become a mentor on VICHARO?',
+    q: 'Can I become a mentor on Vcharo?',
     a: 'Yes — apply via the "Become a Mentor" flow. Approved mentors get a verifiable public portfolio, a dashboard, and a share of every session.',
   },
   {
@@ -547,7 +547,7 @@ export const howMentee = [
 
 export const howMentor = [
   { n: '01', title: 'Apply & get verified', body: 'Submit your profile. We verify employment, references and past mentoring in 5 working days.' },
-  { n: '02', title: 'Set your terms', body: 'Your hours, your price, your topics. VICHARO handles payments, scheduling and no-shows.' },
+  { n: '02', title: 'Set your terms', body: 'Your hours, your price, your topics. Vcharo handles payments, scheduling and no-shows.' },
   { n: '03', title: 'Build a public portfolio', body: 'Every session builds verifiable proof of mentoring — a public signal for your next role or brand.' },
 ];
 

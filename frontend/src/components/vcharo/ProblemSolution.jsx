@@ -27,7 +27,7 @@ export const ProblemSolution = () => {
 
           <div className="border border-navy bg-navy p-8 text-paper" data-testid="solution-card">
             <div className="mb-4 text-xs font-semibold uppercase tracking-widest text-saffron">
-              The VICHARO answer
+              The Vcharo answer
             </div>
             <p className="font-serif text-xl leading-snug text-paper sm:text-2xl">
               A <span className="font-devanagari text-saffron">विचार</span> — a thoughtful connector — between

@@ -1,6 +1,6 @@
 import { Check } from 'lucide-react';
 import { Button } from '../ui/button';
-import { pricingPlans } from '../../data/vicharo';
+import { pricingPlans } from '../../data/vcharo';
 
 export const Pricing = () => {
   return (

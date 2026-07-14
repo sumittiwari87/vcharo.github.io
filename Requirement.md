@@ -7,7 +7,7 @@ _Format: chronological, grouped by phase. This is the running spec._
 
 ## Original PRD (Session 1)
 
-**App:** Vcharo (originally VICHARO — user-facing name is being renamed to "Vcharo" in this phase).
+**App:** Vcharo (originally Vcharo — user-facing name is being renamed to "Vcharo" in this phase).
 **Type:** Web-based, mobile-first, responsive marketing landing page for a two-sided mentor-mentee marketplace.
 
 ### Target Users
@@ -109,8 +109,8 @@ _Format: chronological, grouped by phase. This is the running spec._
 ## Session 5 — Current Ask (this session)
 
 ### 5A. Naming
-- **Global rename:** `VICHARO` → `Vcharo` across all user-facing copy (logos, headings, body text, meta, footer, share strings, README, PRD, this file).
-- Internal identifiers (folder names like `/components/vicharo/`, CSS classes, `data-testid` values) may remain as `vicharo` to avoid breaking git history and referential integrity; only display strings change. **(To confirm before implementation.)**
+- **Global rename:** `Vcharo` → `Vcharo` across all user-facing copy (logos, headings, body text, meta, footer, share strings, README, PRD, this file).
+- Internal identifiers (folder names like `/components/vcharo/`, CSS classes, `data-testid` values) may remain as `vcharo` to avoid breaking git history and referential integrity; only display strings change. **(To confirm before implementation.)**
 
 ### 5B. Dedicated "How it works" page
 - New route `/how-it-works` — deeper than the landing-page section.

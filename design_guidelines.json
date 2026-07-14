@@ -39,7 +39,7 @@
     "Problem vs Solution",
     "How It Works (Tabs)",
     "Featured Categories (Bento Grid)",
-    "Why VICHARO",
+    "Why Vcharo",
     "Featured Mentors (Carousel/Grid)",
     "Success Stories",
     "Pricing",
@@ -48,7 +48,7 @@
   ],
   "grids": {
     "bento_tetris": "Use for 'Featured Categories'. Use grid-cols-1 md:grid-cols-4 lg:grid-cols-12 with wide gaps (gap-6 or gap-8). Mix span sizes (e.g., col-span-4 row-span-2, col-span-8 row-span-1) to create asymmetry and tension.",
-    "standard_dense": "Use for 'Pricing' and 'Why VICHARO'. grid-cols-1 md:grid-cols-3 with gap-8, ensuring equal height cards.",
+    "standard_dense": "Use for 'Pricing' and 'Why Vcharo'. grid-cols-1 md:grid-cols-3 with gap-8, ensuring equal height cards.",
     "spacing_scale": "Extremely generous. Use py-24 or py-32 for section vertical padding. Use p-8 or p-12 inside cards to let text breathe."
   },
   "layouts": {

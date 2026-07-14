@@ -45,7 +45,7 @@ export const CTABand = () => {
           <span className="ml-2 font-devanagari text-saffron">आज</span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-navy/70">
-          Join the VICHARO waitlist. Get early access, an intro session with a hand-picked mentor,
+          Join the Vcharo waitlist. Get early access, an intro session with a hand-picked mentor,
           and ₹500 off your first journey.
         </p>
 

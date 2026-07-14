@@ -9,8 +9,8 @@ import {
   ArrowUpRight,
   ArrowDownAZ,
 } from 'lucide-react';
-import Navbar from '../components/vicharo/Navbar';
-import Footer from '../components/vicharo/Footer';
+import Navbar from '../components/vcharo/Navbar';
+import Footer from '../components/vcharo/Footer';
 import { Toaster } from '../components/ui/sonner';
 import { Input } from '../components/ui/input';
 import {
@@ -20,7 +20,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../components/ui/select';
-import { mentors, mentorDomains, mentorLanguages } from '../data/vicharo';
+import { mentors, mentorDomains, mentorLanguages } from '../data/vcharo';
+import { getAllMentors } from '../lib/mentorStore';
 
 const PRICE_BUCKETS = [
   { id: 'all', label: 'Any price', match: () => true },
@@ -70,8 +71,9 @@ export default function MentorDiscoveryPage() {
   const filtered = useMemo(() => {
     const bucket = PRICE_BUCKETS.find((b) => b.id === price) || PRICE_BUCKETS[0];
     const q = query.trim().toLowerCase();
+    const source = getAllMentors();
 
-    let list = mentors.filter((m) => {
+    let list = source.filter((m) => {
       if (selectedDomains.size && !selectedDomains.has(m.domain)) return false;
       if (selectedLanguages.size && !m.languages.some((l) => selectedLanguages.has(l))) return false;
       if (!bucket.match(m.priceValue)) return false;

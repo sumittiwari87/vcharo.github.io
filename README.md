@@ -1,4 +1,4 @@
-# VICHARO — विचार
+# Vcharo — विचार
 
 > A thoughtful connector between ambitious mentees and senior domain experts.
 > Built for Tier 2/3 India.
@@ -10,7 +10,7 @@
 
 ## 🧭 Project Overview
 
-VICHARO is a two-sided mentor-mentee marketplace. This repo currently contains the
+Vcharo is a two-sided mentor-mentee marketplace. This repo currently contains the
 **public marketing landing page (v1)** with a working waitlist backend. Auth,
 booking, payments, and dashboards are future modules.
 
@@ -46,9 +46,9 @@ booking, payments, and dashboards are future modules.
 │   │   │   └── Landing.jsx  # composes the landing page
 │   │   ├── components/
 │   │   │   ├── ui/          # shadcn primitives (button, tabs, accordion, ...)
-│   │   │   └── vicharo/     # landing sections (see below)
+│   │   │   └── vcharo/     # landing sections (see below)
 │   │   └── data/
-│   │       └── vicharo.js   # static seed data (mentors, categories, ...)
+│   │       └── vcharo.js   # static seed data (mentors, categories, ...)
 │   ├── tailwind.config.js
 │   ├── package.json
 │   └── .env                 # REACT_APP_BACKEND_URL
@@ -58,16 +58,16 @@ booking, payments, and dashboards are future modules.
 └── README.md                # this file
 ```
 
-### Landing sections (`/app/frontend/src/components/vicharo/`)
+### Landing sections (`/app/frontend/src/components/vcharo/`)
 
 | File                    | What it does                                              |
 | ----------------------- | --------------------------------------------------------- |
-| `Navbar.jsx`            | Sticky top nav, mobile drawer, `VICHARO विचार` wordmark   |
+| `Navbar.jsx`            | Sticky top nav, mobile drawer, `Vcharo विचार` wordmark   |
 | `Hero.jsx`              | Split hero, dual CTAs, trust-stat strip, arch-top images  |
-| `ProblemSolution.jsx`   | Two-card contrast: the problem vs the VICHARO answer      |
+| `ProblemSolution.jsx`   | Two-card contrast: the problem vs the Vcharo answer      |
 | `HowItWorks.jsx`        | Shadcn Tabs — Mentee (3 steps) / Mentor (3 steps)         |
 | `Categories.jsx`        | Bento grid — 6 domains with Devanagari sub-labels         |
-| `WhyVicharo.jsx`        | 4 value cards (verified, structured, accountable, ₹)      |
+| `WhyVcharo.jsx`        | 4 value cards (verified, structured, accountable, ₹)      |
 | `FeaturedMentors.jsx`   | Horizontal scroller — 4 mentors, prev/next controls       |
 | `Testimonials.jsx`      | 3 mentee stories, middle card inverted                    |
 | `ForMentors.jsx`        | Dark navy band pitching mentor benefits (6 perks)         |
@@ -121,6 +121,13 @@ Base URL (dev): `${REACT_APP_BACKEND_URL}/api`
 - [x] Deployed to Emergent production
 - [x] **Individual mentor profile page (`/mentors/:id`)** — hero (photo, verified badge, rating, location, response time, languages), bio, expertise list, career timeline (roles + education), booking widget (session-type picker, availability slots, sticky summary), reviews, related mentors carousel
 - [x] Featured Mentors cards on landing → link to profile page (whole card is clickable, "View profile" CTA)
+- [x] **Mentor discovery page (`/mentors`)** — 10 mentors, filter by domain / price bucket / language, keyword search, 4 sort orders, URL-synced filters (shareable), mobile filter drawer, empty state, results-count. Navbar `Mentors` and `Get Started` now route here.
+- [x] **Global rename VICHARO → Vcharo** — folders (`components/vicharo/` → `vcharo/`), data files, imports, backend messages, docs. Only Devanagari accent `विचार` retained (it's the etymology).
+- [x] **Dedicated `/how-it-works` page** — hero + track switcher (mentee/mentor, URL-synced `?track=mentor`), 5-step journey with under-the-hood callouts + Devanagari step numbers, trust/mechanics cards, session anatomy, pricing snapshot (reused), comparison table (vs Topmate / ADPList / free forums), FAQ, CTA band.
+- [x] **Login dialog** (MOCKED auth) — shadcn Dialog opened from Navbar. Role picker → auth-method tabs (Email / Google / LinkedIn). Stores `{role, email, name}` in `localStorage` via `useSession()` hook.
+- [x] **Mentee dashboard `/dashboard/mentee`** — editable profile (name, city, role, goal, domains, languages, budget, bio), resume upload (client-side), GitHub connect (mocked, pick up to 4 repos), matched mentors (client-side scored recommendation from the 10-mentor list), empty sessions state.
+- [x] **Mentor dashboard `/dashboard/mentor`** — inline-editable public profile (title, tag, bio, expertise, session prices) that immediately reflects on `/mentors/:id`. Potential mentees (domain-matched), Current mentees, Incoming requests (Accept/Decline), Sent requests. Custom-price dialog enforces `offer ≤ public price`.
+- [x] **Storage abstraction lib** — `session.js`, `mentorStore.js`, `menteeStore.js`, `requestsStore.js` all wrap `localStorage` behind an API-shaped interface so swapping to real backend is a one-file change.
 
 ---
 
@@ -133,10 +140,13 @@ Base URL (dev): `${REACT_APP_BACKEND_URL}/api`
 - [ ] SEO: title, meta description, sitemap.xml, robots.txt
 
 ### P0 — Core marketplace (next big module)
-- [x] Mentor discovery / filter page (`/mentors`) — ✅ done Dec 13, 2025 (domain/price/language filters, search, sort, URL-synced, empty state)
+- [x] Mentor discovery / filter page (`/mentors`) — ✅ done Dec 13, 2025
 - [x] Individual mentor profile page (`/mentors/:id`) — ✅ done Dec 13, 2025
-- [ ] Mentee signup + Mentor onboarding auth flows
-- [ ] Mentor application form + admin approval flow
+- [x] Mentee signup + Mentor onboarding auth flows — ✅ MOCKED (dummy localStorage session). Real Emergent Google Auth / JWT still pending.
+- [ ] Real auth (Emergent-managed Google Auth or JWT) — replace the dummy `useSession` implementation
+- [ ] Mentor application form + admin approval flow (verification queue)
+- [ ] Real `POST /api/bookings` endpoint (replace waitlist mock inside `MentorProfile.jsx > requestBooking`)
+- [ ] Real backend for mentee profile / mentor edits / requests / resume upload (swap out `localStorage`-backed stores)
 
 ### Ideas surfaced by testing/design agents (backlog)
 - [ ] **Booking API refactor** — replace the `POST /api/waitlist` mock used inside `MentorProfile.jsx > requestBooking` with a real `POST /api/bookings` endpoint (fields: mentor_id, session_type_id, day, slot, mentee_email/id, price, status).
@@ -193,7 +203,7 @@ Retest a backend endpoint locally (dev):
 ```bash
 API=$(grep REACT_APP_BACKEND_URL /app/frontend/.env | cut -d '=' -f2)
 curl -s -X POST "$API/api/waitlist" -H "Content-Type: application/json" \
-  -d '{"email":"demo@vicharo.in","role":"mentee"}'
+  -d '{"email":"demo@vcharo.in","role":"mentee"}'
 ```
 
 ---
@@ -221,6 +231,7 @@ curl -s -X POST "$API/api/waitlist" -H "Content-Type: application/json" \
 | 2025-12-13 | Added `/mentors` discovery page — 10 mentors, domain/price/language filters, search, sort, URL-synced filters, mobile drawer. Navbar links wired to route. Added agent-flagged improvement backlog to README. |
 | 2025-12-13 | Testing iteration 3: 94% pass. Fixed testid regex for 'Data & AI' domain (via testing agent), cleaned duplicate Malayalam entries in language filter, normalised m1's language to devanagari-free `മലയാളം`. |
 | 2025-12-13 | Appended all iteration-3 agent-surfaced ideas into the backlog: mobile-drawer testid namespacing, `toggle` helper refactor, price bucket tightening, route-level error boundaries, prod error reporting. |
+| 2025-12-14 | Hard rename VICHARO → Vcharo across code + docs. Added `/how-it-works` page, login dialog (mocked), mentee dashboard, mentor dashboard. Introduced storage abstraction lib (`/src/lib/*`) so future backend swap is one-file change. |
 
 _This README is the live source of truth for scope + status. It will be updated
 after every feature, fix, or scope change._

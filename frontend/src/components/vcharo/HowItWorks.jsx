@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '../ui/tabs';
-import { howMentee, howMentor } from '../../data/vicharo';
+import { howMentee, howMentor } from '../../data/vcharo';
 
 const StepList = ({ steps, testid }) => (
   <ol className="space-y-8" data-testid={testid}>

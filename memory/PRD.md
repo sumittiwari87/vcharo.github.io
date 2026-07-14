@@ -1,7 +1,7 @@
-# VICHARO — Product Requirements Document
+# Vcharo — Product Requirements Document
 
 ## Original Problem Statement
-High-conversion marketing landing page for VICHARO — a two-sided mentor-mentee marketplace
+High-conversion marketing landing page for Vcharo — a two-sided mentor-mentee marketplace
 connecting aspiring professionals from Tier 2/3 India with senior domain experts. Public
 entry point for both mentees and mentors.
 
@@ -34,7 +34,7 @@ Editorial edtech aesthetic with Indian identity accent.
   - Problem → Solution strip
   - How It Works (shadcn Tabs — mentee vs mentor)
   - Featured Categories (bento grid, 6 domains)
-  - Why VICHARO (4 value cards)
+  - Why Vcharo (4 value cards)
   - Featured Mentors (horizontal scroller, 4 curated mentors)
   - Testimonials (3 stories, middle card inverted navy)
   - For Mentors band (dark navy, saffron glow, 6 perks)

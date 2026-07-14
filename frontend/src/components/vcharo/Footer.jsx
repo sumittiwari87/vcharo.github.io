@@ -22,7 +22,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <div className="flex items-baseline gap-2">
-              <span className="font-serif text-3xl font-bold text-paper">VICHARO</span>
+              <span className="font-serif text-3xl font-bold text-paper">Vcharo</span>
               <span className="font-devanagari text-xl text-saffron">विचार</span>
             </div>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-paper/70">
@@ -70,7 +70,7 @@ export const Footer = () => {
 
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-paper/15 pt-8 sm:flex-row sm:items-center">
           <p className="text-xs text-paper/50">
-            © {new Date().getFullYear()} VICHARO Technologies Pvt. Ltd. Made with intention in India.
+            © {new Date().getFullYear()} Vcharo Technologies Pvt. Ltd. Made with intention in India.
           </p>
           <div className="flex gap-6 text-xs text-paper/60">
             <a href="#" className="hover:text-saffron">Privacy</a>

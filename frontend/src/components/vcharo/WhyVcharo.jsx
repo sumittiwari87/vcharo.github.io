@@ -1,11 +1,11 @@
-import { whyPoints } from '../../data/vicharo';
+import { whyPoints } from '../../data/vcharo';
 
-export const WhyVicharo = () => {
+export const WhyVcharo = () => {
   return (
     <section className="border-b border-black/10 bg-sand/40 py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="max-w-2xl">
-          <div className="text-xs uppercase tracking-[0.25em] text-saffron">Why VICHARO</div>
+          <div className="text-xs uppercase tracking-[0.25em] text-saffron">Why Vcharo</div>
           <h2 className="mt-6 font-serif text-3xl font-semibold leading-tight tracking-tight text-navy sm:text-4xl lg:text-5xl">
             Built for India. Built to <span className="italic">actually</span> work.
           </h2>
@@ -34,4 +34,4 @@ export const WhyVicharo = () => {
   );
 };
 
-export default WhyVicharo;
+export default WhyVcharo;

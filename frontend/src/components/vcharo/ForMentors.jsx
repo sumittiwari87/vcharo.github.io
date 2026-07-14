@@ -22,7 +22,7 @@ export const ForMentors = () => {
             <br /> <span className="font-devanagari text-saffron">पहचान</span>.
           </h2>
           <p className="mt-8 max-w-lg text-base leading-relaxed text-paper/75">
-            VICHARO isn&apos;t another mentor marketplace. Every session builds a verified track record —
+            Vcharo isn&apos;t another mentor marketplace. Every session builds a verified track record —
             a public portfolio of the people you&apos;ve moved forward. Show it in your next promo cycle,
             your next talk, your next role.
           </p>

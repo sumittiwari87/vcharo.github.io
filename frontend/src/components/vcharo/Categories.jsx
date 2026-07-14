@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
-import { categories } from '../../data/vicharo';
+import { categories } from '../../data/vcharo';
 
 export const Categories = () => {
   return (

@@ -1,6 +1,6 @@
 import { ArrowUpRight, Sparkles } from 'lucide-react';
 import { Button } from '../ui/button';
-import { stats } from '../../data/vicharo';
+import { stats } from '../../data/vcharo';
 
 export const Hero = () => {
   const scrollToWaitlist = (role) => {
@@ -34,7 +34,7 @@ export const Hero = () => {
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-navy/70 sm:text-lg">
-            VICHARO — from{' '}
+            Vcharo — from{' '}
             <span className="font-devanagari text-saffron">विचार</span>, a thoughtful connector —
             pairs ambitious professionals from Tier 2/3 India with senior domain experts through
             structured journeys, not one-off calls.

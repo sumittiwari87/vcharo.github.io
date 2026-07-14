@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
-import { mentors } from '../../data/vicharo';
+import { mentors } from '../../data/vcharo';
 
 export const FeaturedMentors = () => {
   const scrollerRef = useRef(null);

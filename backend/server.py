@@ -53,7 +53,7 @@ class WaitlistEntry(BaseModel):
 # ---------- Routes ----------
 @api_router.get("/")
 async def root():
-    return {"message": "VICHARO API is live"}
+    return {"message": "Vcharo API is live"}
 
 
 @api_router.post("/status", response_model=StatusCheck)
@@ -86,7 +86,7 @@ async def join_waitlist(payload: WaitlistCreate):
         return {
             "success": True,
             "already_registered": True,
-            "message": "You're already on the VICHARO waitlist.",
+            "message": "You're already on the Vcharo waitlist.",
         }
 
     entry = WaitlistEntry(email=email, role=role, source=payload.source or "landing")
@@ -96,7 +96,7 @@ async def join_waitlist(payload: WaitlistCreate):
     return {
         "success": True,
         "already_registered": False,
-        "message": "Welcome to VICHARO. We'll be in touch soon.",
+        "message": "Welcome to Vcharo. We'll be in touch soon.",
         "id": entry.id,
     }
 

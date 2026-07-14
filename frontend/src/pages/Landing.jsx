@@ -1,16 +1,16 @@
-import Navbar from '../components/vicharo/Navbar';
-import Hero from '../components/vicharo/Hero';
-import ProblemSolution from '../components/vicharo/ProblemSolution';
-import HowItWorks from '../components/vicharo/HowItWorks';
-import Categories from '../components/vicharo/Categories';
-import WhyVicharo from '../components/vicharo/WhyVicharo';
-import FeaturedMentors from '../components/vicharo/FeaturedMentors';
-import Testimonials from '../components/vicharo/Testimonials';
-import ForMentors from '../components/vicharo/ForMentors';
-import Pricing from '../components/vicharo/Pricing';
-import FAQ from '../components/vicharo/FAQ';
-import CTABand from '../components/vicharo/CTABand';
-import Footer from '../components/vicharo/Footer';
+import Navbar from '../components/vcharo/Navbar';
+import Hero from '../components/vcharo/Hero';
+import ProblemSolution from '../components/vcharo/ProblemSolution';
+import HowItWorks from '../components/vcharo/HowItWorks';
+import Categories from '../components/vcharo/Categories';
+import WhyVcharo from '../components/vcharo/WhyVcharo';
+import FeaturedMentors from '../components/vcharo/FeaturedMentors';
+import Testimonials from '../components/vcharo/Testimonials';
+import ForMentors from '../components/vcharo/ForMentors';
+import Pricing from '../components/vcharo/Pricing';
+import FAQ from '../components/vcharo/FAQ';
+import CTABand from '../components/vcharo/CTABand';
+import Footer from '../components/vcharo/Footer';
 import { Toaster } from '../components/ui/sonner';
 
 export default function LandingPage() {
@@ -22,7 +22,7 @@ export default function LandingPage() {
         <ProblemSolution />
         <HowItWorks />
         <Categories />
-        <WhyVicharo />
+        <WhyVcharo />
         <FeaturedMentors />
         <Testimonials />
         <ForMentors />

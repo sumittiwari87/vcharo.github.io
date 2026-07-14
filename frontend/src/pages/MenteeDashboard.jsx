@@ -19,6 +19,7 @@ import { useSession } from '../lib/session';
 import { readMenteeProfile, writeMenteeProfile } from '../lib/menteeStore';
 import { mockGithubRepos } from '../data/dashboard';
 import { mentors as staticMentors, mentorDomains, mentorLanguages } from '../data/vcharo';
+import VerifiedBadges from '../components/vcharo/VerifiedBadges';
 
 const SectionHeader = ({ eyebrow, title, action }) => (
   <div className="mb-6 flex items-start justify-between gap-4">
@@ -461,6 +462,17 @@ export default function MenteeDashboardPage() {
       ]}
     >
       <div className="space-y-8">
+        {user.verified_badges && user.verified_badges.length > 0 && (
+          <div
+            data-testid="mentee-badges-banner"
+            className="flex items-center justify-between border border-black/15 bg-sand/40 px-6 py-4"
+          >
+            <div className="text-sm text-navy">
+              You&apos;re signed in as <strong>{user.name || 'Mentee'}</strong>
+            </div>
+            <VerifiedBadges badges={user.verified_badges} testId="mentee-verified-badges" />
+          </div>
+        )}
         <ProfileCard profile={profile} onSave={saveProfile} />
         <ResumeCard resume={profile.resume} onUpload={uploadResume} onRemove={removeResume} />
         <GithubCard profile={profile} onConnect={connectGithub} onToggleRepo={toggleRepo} />

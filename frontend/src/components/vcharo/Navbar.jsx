@@ -78,7 +78,7 @@ export const Navbar = () => {
               </button>
               <Button
                 data-testid="navbar-get-started-btn"
-                onClick={() => setLoginOpen(true)}
+                onClick={() => navigate('/get-started')}
                 className="btn-tactile-inverse rounded-none border border-navy bg-navy px-5 py-5 font-sans text-sm text-paper hover:bg-navy"
               >
                 Get Started
@@ -149,7 +149,7 @@ export const Navbar = () => {
                     data-testid="nav-mobile-get-started-btn"
                     onClick={() => {
                       setOpen(false);
-                      setLoginOpen(true);
+                      navigate('/get-started');
                     }}
                     className="rounded-none w-full border border-navy bg-navy py-6 text-paper hover:bg-navy"
                   >

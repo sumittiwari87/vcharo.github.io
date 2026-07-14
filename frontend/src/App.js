@@ -8,6 +8,9 @@ import MenteeDashboardPage from "./pages/MenteeDashboard";
 import MentorDashboardPage from "./pages/MentorDashboard";
 import PricingPage from "./pages/PricingPage";
 import AboutPage from "./pages/AboutPage";
+import GetStartedPage from "./pages/GetStarted";
+import OnboardingMenteePage from "./pages/OnboardingMentee";
+import OnboardingMentorPage from "./pages/OnboardingMentor";
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
           <Route path="/how-it-works" element={<HowItWorksPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/get-started" element={<GetStartedPage />} />
+          <Route path="/onboarding/mentee" element={<OnboardingMenteePage />} />
+          <Route path="/onboarding/mentor" element={<OnboardingMentorPage />} />
           <Route path="/mentors" element={<MentorDiscoveryPage />} />
           <Route path="/mentors/:id" element={<MentorProfilePage />} />
           <Route path="/dashboard/mentee" element={<MenteeDashboardPage />} />

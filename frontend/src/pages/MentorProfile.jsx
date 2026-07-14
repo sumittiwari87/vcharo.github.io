@@ -18,6 +18,7 @@ import { Button } from '../components/ui/button';
 import { Toaster } from '../components/ui/sonner';
 import Navbar from '../components/vcharo/Navbar';
 import Footer from '../components/vcharo/Footer';
+import VerifiedBadges from '../components/vcharo/VerifiedBadges';
 import { mentors } from '../data/vcharo';
 import { getMentor } from '../lib/mentorStore';
 
@@ -180,6 +181,12 @@ export default function MentorProfilePage() {
               <Languages size={14} className="text-saffron" />
               <span>Speaks: {mentor.languages.join(' · ')}</span>
             </div>
+
+            {mentor.verified_badges && mentor.verified_badges.length > 0 && (
+              <div className="mt-6" data-testid="mentor-hero-badges">
+                <VerifiedBadges badges={mentor.verified_badges} />
+              </div>
+            )}
 
             <p className="mt-8 max-w-2xl text-base leading-relaxed text-navy/80 sm:text-lg" data-testid="mentor-bio">
               {mentor.bio}

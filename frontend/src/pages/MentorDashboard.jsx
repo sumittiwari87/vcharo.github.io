@@ -1,8 +1,9 @@
 import { useMemo, useState, useEffect } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import { toast } from 'sonner';
-import { Pencil, Save, X as XIcon, Send, Check, Trash2, ExternalLink } from 'lucide-react';
+import { Pencil, Save, X as XIcon, Send, Check, Trash2, ExternalLink, Clock } from 'lucide-react';
 import DashboardShell from '../components/vcharo/dashboard/DashboardShell';
+import VerifiedBadges from '../components/vcharo/VerifiedBadges';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
@@ -401,6 +402,28 @@ export default function MentorDashboardPage() {
       ]}
     >
       <div className="space-y-8">
+        {user.applicationStatus === 'pending' && (
+          <div
+            data-testid="mentor-under-review-banner"
+            className="border-2 border-navy bg-navy p-6 text-paper"
+          >
+            <div className="flex items-center gap-2">
+              <Clock size={16} className="text-saffron" />
+              <div className="text-xs font-semibold uppercase tracking-widest text-saffron">
+                Application under review
+              </div>
+            </div>
+            <div className="mt-3 font-serif text-xl">
+              You&apos;re not yet visible to mentees. Trust team decision within 5 working days.
+            </div>
+            {user.verified_badges && user.verified_badges.length > 0 && (
+              <div className="mt-5">
+                <VerifiedBadges badges={user.verified_badges} testId="mentor-under-review-badges" />
+              </div>
+            )}
+          </div>
+        )}
+
         <EditableProfile
           mentorId={mentorId}
           mentor={mentor}

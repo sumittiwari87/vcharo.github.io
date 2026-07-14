@@ -120,6 +120,7 @@ export const mentors = [
     ],
     responseTime: 'Under 6 hours',
     verified: true,
+    verified_badges: ['identity', 'linkedin', 'company'],
   },
   {
     id: 'm2',
@@ -182,6 +183,7 @@ export const mentors = [
     ],
     responseTime: 'Under 12 hours',
     verified: true,
+    verified_badges: ['identity', 'linkedin', 'company'],
   },
   {
     id: 'm3',
@@ -244,6 +246,7 @@ export const mentors = [
     ],
     responseTime: 'Under 8 hours',
     verified: true,
+    verified_badges: ['identity', 'linkedin', 'company'],
   },
   {
     id: 'm4',
@@ -306,6 +309,7 @@ export const mentors = [
     ],
     responseTime: 'Under 24 hours',
     verified: true,
+    verified_badges: ['identity', 'linkedin', 'company'],
   },
 ];
 
@@ -334,6 +338,7 @@ const lite = (over) => ({
   ],
   responseTime: 'Under 24 hours',
   verified: true,
+    verified_badges: ['identity', 'linkedin', 'company'],
   ...over,
 });
 

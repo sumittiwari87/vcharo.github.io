@@ -22,6 +22,7 @@ import {
 } from '../components/ui/select';
 import { mentors, mentorDomains, mentorLanguages } from '../data/vcharo';
 import { getAllMentors } from '../lib/mentorStore';
+import VerifiedBadges from '../components/vcharo/VerifiedBadges';
 
 const PRICE_BUCKETS = [
   { id: 'all', label: 'Any price', match: () => true },
@@ -375,6 +376,11 @@ export default function MentorDiscoveryPage() {
                         <Star size={14} fill="#F57A00" stroke="#F57A00" />
                         <span className="font-medium">{m.rating}</span>
                         <span className="text-navy/50">· {m.sessions} sessions</span>
+                        {m.verified_badges && (
+                          <span className="ml-auto">
+                            <VerifiedBadges badges={m.verified_badges} size="sm" testId={`discovery-badges-${m.id}`} />
+                          </span>
+                        )}
                       </div>
                       <h3 className="mt-3 font-serif text-xl font-semibold text-navy transition-colors group-hover:text-saffron">
                         {m.name}

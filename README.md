@@ -150,10 +150,11 @@ Base URL (dev): `${REACT_APP_BACKEND_URL}/api`
 - [ ] Real `POST /api/bookings` endpoint (replace waitlist mock inside `MentorProfile.jsx > requestBooking`)
 - [ ] Real backend for mentee profile / mentor edits / requests / resume upload (swap out `localStorage`-backed stores)
 
-### Ideas surfaced by testing/design agents (backlog)
+### Ideas surfaced by testing/design agents + session summaries (backlog)
 - [ ] **Booking API refactor** — replace the `POST /api/waitlist` mock used inside `MentorProfile.jsx > requestBooking` with a real `POST /api/bookings` endpoint (fields: mentor_id, session_type_id, day, slot, mentee_email/id, price, status).
 - [ ] **Split MentorProfile.jsx** — currently ~500 lines. Extract sub-components: `BookingWidget`, `ExperienceTimeline`, `ReviewsGrid`, `RelatedMentors` for easier future edits.
 - [ ] **SEO on 404 / mentor profile** — add helmet `<meta name="robots" content="noindex">` on the mentor-not-found state; add per-mentor page title + og:image on profile pages.
+- [ ] **SEO polish across all routes** — per-route `<title>`, meta description, `og:image`, `og:description`, Twitter card. Sitemap.xml + robots.txt. Especially for `/how-it-works`, `/pricing`, `/about`, `/mentors`, `/mentors/:id`.
 - [ ] **Docs/tests must use real-domain example emails** — Pydantic `EmailStr` rejects reserved TLDs like `.test` / `.example`; use `@example.com` in demos.
 - [ ] **"Save mentor" bookmark** on profile card — lead-magnet: capture email in exchange for saved list; typically +30% return-visit conversion.
 - [ ] **Compare mentors** — pick 2–3 from discovery and side-by-side compare price / rating / expertise / availability.
@@ -163,6 +164,12 @@ Base URL (dev): `${REACT_APP_BACKEND_URL}/api`
 - [ ] **Tighten "Under ₹1,500" price bucket** — currently matches `< 1500`, which includes ₹1,499 (Aarav Menon). Decide intent — either keep as `< 1500` (current) or shift to `< 1400` to feel like a real budget bucket.
 - [ ] **Error boundary at route level** — the `useNavigate is not defined` regression during dev showed the whole page crashed silently. Wrap each route in a small React error boundary that renders a "Something broke — go home" fallback.
 - [ ] **Console/network logs in production** — add a lightweight client error reporter (Sentry / LogRocket free tier) so we catch these dev-only regressions in prod too.
+- [ ] **Real payment + escrow (Razorpay)** — replace the mocked pricing/refund copy with an actual Razorpay integration for session + monthly Journey. Refund ticketing surface for the Trust team. Payout pipeline (NEFT/IMPS via Razorpay Payouts) for mentors.
+- [ ] **Real auth to replace mocked login/session** — swap the `useSession` localStorage layer for Emergent-managed Google Auth (or JWT + password). Mentee/Mentor role stored on the user record, not just the client. Requires `integration_playbook_expert_v2` before code.
+- [ ] **Move mentor / mentee / requests stores to real backend** — the `/src/lib/*Store.js` modules are already API-shaped; swap their bodies for `fetch('/api/mentors/:id')`, `POST /api/mentee/profile`, `POST /api/requests` etc. Everything else keeps working.
+- [ ] **"Meet the founders" Calendly slot on About page** — replace the generic waitlist CTA at the bottom of `/about` with a 10-minute founder-call embed. Historically doubles press/BD conversion for early-stage companies.
+- [ ] **Refund case tooling** — build the mentee-facing "Raise a refund case" form referenced on `/pricing` (evidence upload, status page for the mentee, review queue in a small admin surface for Vcharo Trust team).
+- [ ] **Mentor payouts dashboard** — new tab on `/dashboard/mentor` showing lifetime earnings, upcoming payouts, downloadable statements (matches the `/pricing?side=mentor` promise).
 
 ### P0 — Booking & Payments
 - [ ] Booking / calendar integration (Cal.com embed or custom)
@@ -235,6 +242,7 @@ curl -s -X POST "$API/api/waitlist" -H "Content-Type: application/json" \
 | 2025-12-13 | Appended all iteration-3 agent-surfaced ideas into the backlog: mobile-drawer testid namespacing, `toggle` helper refactor, price bucket tightening, route-level error boundaries, prod error reporting. |
 | 2025-12-14 | Hard rename VICHARO → Vcharo across code + docs. Added `/how-it-works` page, login dialog (mocked), mentee dashboard, mentor dashboard. Introduced storage abstraction lib (`/src/lib/*`) so future backend swap is one-file change. |
 | 2025-12-14 | Added `/pricing` page (mentee/mentor track, escrow story, refund evidence rules, 3-step refund flow, 7-Q FAQ) and `/about` page (story, vision, beliefs, leadership + team + advisors, careers/press band). Navbar Pricing and About now route to dedicated pages. Testing agent skipped per user instruction. |
+| 2025-12-14 | Consolidated all recent enhancement suggestions (Razorpay integration, real auth, backend swap for local stores, SEO polish, Meet-the-founders Calendly, refund tooling, mentor payouts dashboard) into the single **Ideas surfaced by testing/design agents + session summaries (backlog)** section in README. This is now the one place enhancement ideas live. |
 
 _This README is the live source of truth for scope + status. It will be updated
 after every feature, fix, or scope change._

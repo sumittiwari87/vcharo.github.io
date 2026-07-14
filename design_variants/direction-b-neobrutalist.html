@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@500;800;900&family=Inter:wght@400;600&family=Rozha+One&display=swap" rel="stylesheet">
+  <style> 
+    body { font-family: 'Inter', sans-serif; background-color: #FFF9E6; } 
+    h1, h2, h3, h4, .cabinet { font-family: 'Cabinet Grotesk', sans-serif; }
+    .devanagari { font-family: 'Rozha One', serif; } 
+    .brutal-shadow { box-shadow: 6px 6px 0px 0px rgba(0,0,0,1); }
+    .brutal-shadow-sm { box-shadow: 4px 4px 0px 0px rgba(0,0,0,1); }
+    .brutal-shadow:hover { box-shadow: 2px 2px 0px 0px rgba(0,0,0,1); transform: translate(4px, 4px); }
+  </style>
+</head>
+<body class="p-4 md:p-12">
+  <div class="max-w-6xl mx-auto space-y-16">
+    
+    <!-- Hero Concept -->
+    <div class="bg-[#FF90E8] border-4 border-black p-10 md:p-20 relative brutal-shadow transition-all">
+      <div class="inline-block bg-[#FFFF00] border-2 border-black px-4 py-2 font-bold text-sm mb-8 uppercase tracking-wider brutal-shadow-sm">⚡ Level Up Your Career</div>
+      <h1 class="text-5xl md:text-8xl font-black text-black leading-[0.9] mb-8 uppercase">
+        Real Mentors.<br>No Bullshit. <span class="devanagari text-white drop-shadow-[2px_2px_0_rgba(0,0,0,1)] lowercase tracking-normal">विचार</span>
+      </h1>
+      <p class="text-2xl text-black font-semibold mb-10 max-w-2xl">Skip the corporate jargon. Get actionable advice from Tier 1 experts directly.</p>
+      <button class="bg-black text-white px-10 py-5 text-xl font-black uppercase tracking-wider border-2 border-transparent hover:bg-white hover:text-black hover:border-black transition-colors brutal-shadow-sm">Find Your Mentor ➔</button>
+    </div>
+
+    <!-- Section Band -->
+    <div class="flex items-center justify-between border-b-4 border-black pb-4 mb-12">
+      <h2 class="text-4xl font-black uppercase">Top Mentors</h2>
+      <a href="#" class="text-black font-bold uppercase border-2 border-black px-4 py-2 bg-white hover:bg-[#90FF90] transition-colors brutal-shadow-sm">See All Mentors</a>
+    </div>
+
+    <!-- Mentor Cards Concept -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Card 1 (Kabir) -->
+      <div class="bg-[#90E0FF] p-6 border-4 border-black brutal-shadow transition-all flex flex-col h-full">
+        <img src="https://customer-assets.emergentagent.com/job_mentor-connect-230/artifacts/w5fqzf7w_%2A%20Kabir%20-%20Data_AI.jpg" class="w-full h-48 object-cover border-4 border-black mb-6 grayscale hover:grayscale-0 transition-all filter">
+        <h3 class="font-black text-3xl text-black uppercase mb-1">Kabir Malhotra</h3>
+        <p class="text-black font-bold mb-4 text-lg">Finance & Strategy</p>
+        
+        <div class="flex gap-2 mb-8 flex-wrap">
+          <span class="bg-white border-2 border-black text-black px-3 py-1 text-sm font-bold uppercase brutal-shadow-sm">Investments</span>
+          <span class="bg-white border-2 border-black text-black px-3 py-1 text-sm font-bold uppercase brutal-shadow-sm">VC</span>
+        </div>
+        
+        <div class="mt-auto">
+          <button class="w-full bg-[#FFFF00] text-black border-4 border-black py-4 font-black text-xl uppercase brutal-shadow-sm hover:bg-black hover:text-white transition-colors">Book Now</button>
+        </div>
+      </div>
+
+      <!-- Card 2 (Vikram) -->
+      <div class="bg-white p-6 border-4 border-black brutal-shadow transition-all flex flex-col h-full">
+        <img src="https://customer-assets.emergentagent.com/job_mentor-connect-230/artifacts/f0b7abo6_Varun%20-%20Event_Management.jpg" class="w-full h-48 object-cover border-4 border-black mb-6 grayscale hover:grayscale-0 transition-all filter">
+        <h3 class="font-black text-3xl text-black uppercase mb-1">Vikram Shah</h3>
+        <p class="text-black font-bold mb-4 text-lg">Product Design</p>
+        
+        <div class="flex gap-2 mb-8 flex-wrap">
+          <span class="bg-[#FF90E8] border-2 border-black text-black px-3 py-1 text-sm font-bold uppercase brutal-shadow-sm">UX</span>
+          <span class="bg-[#FF90E8] border-2 border-black text-black px-3 py-1 text-sm font-bold uppercase brutal-shadow-sm">Figma</span>
+        </div>
+        
+        <div class="mt-auto">
+          <button class="w-full bg-black text-white border-4 border-black py-4 font-black text-xl uppercase brutal-shadow-sm hover:bg-[#90FF90] hover:text-black transition-colors">Book Now</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</body>
+</html>
